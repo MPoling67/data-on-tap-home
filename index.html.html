@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data on Tap — AI-Powered Business Tools | Knowledge on Tap</title>
+<meta name="description" content="A working library of AI-powered business intelligence tools. Built with Claude API, deployed on Vercel. Free to use. 🛠️">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#1a1a18;--surface:#242422;--surface2:#2e2e2b;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --text:#f0ede8;--muted:#8a8a84;--dim:#5a5a56;
+  --accent:#861442;--accent2:#be3650;--radius:10px;
+  --topbar:#111110;
+}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;min-height:100vh;}
+
+/* Top bar */
+.kot-bar{background:var(--topbar);padding:8px clamp(16px,4vw,2rem);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100;}
+.kot-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.kot-logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.kot-nav{display:flex;gap:20px;align-items:center;}
+.kot-nav a{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.04em;}
+.kot-nav a:hover{color:var(--accent2);}
+
+/* Hero */
+.kot-hero{background:var(--topbar);padding:2.5rem clamp(16px,4vw,2rem) 2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.kot-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;}
+.kot-h1{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,36px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:12px;}
+.kot-h1 strong{font-weight:700;}
+.kot-h1 em{font-style:italic;color:var(--accent2);}
+.kot-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:18px;max-width:560px;}
+.hero-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.hero-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.35);}
+.hero-tag.accent{background:rgba(134,20,66,0.2);border-color:rgba(134,20,66,0.4);color:var(--accent2);}
+
+/* Main content */
+.main{max-width:860px;margin:0 auto;padding:0 clamp(16px,4vw,2rem);}
+
+/* Section */
+.section{padding:2rem 0 1rem;}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.section-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);}
+
+/* Type grid */
+.type-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:2.5rem;}
+@media(max-width:600px){.type-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.type-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 14px 12px;cursor:pointer;transition:border-color 0.15s,background 0.15s;user-select:none;}
+.type-card:hover{border-color:var(--border2);}
+.type-card.active{border-color:var(--accent);background:rgba(134,20,66,0.12);}
+.type-rule{height:2px;width:20px;background:var(--accent);border-radius:1px;margin-bottom:10px;transition:width 0.2s;}
+.type-card.active .type-rule{width:32px;}
+.type-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px;}
+.type-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:300;color:var(--muted);line-height:1.4;}
+.type-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);margin-top:8px;}
+
+/* Tools grid */
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:border-color 0.15s;}
+.tool-card:hover{border-color:var(--border2);}
+.tool-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2);display:block;}
+.tool-thumb-placeholder{width:100%;aspect-ratio:16/9;background:var(--surface2);display:flex;align-items:center;justify-content:center;}
+.tool-thumb-placeholder svg{opacity:0.2;}
+.tool-body{padding:14px 16px 14px;flex:1;display:flex;flex-direction:column;}
+.tool-meta{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.badge{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:500;padding:2px 7px;border-radius:20px;letter-spacing:0.04em;}
+.badge-type{background:rgba(134,20,66,0.2);color:var(--accent2);border:1px solid rgba(134,20,66,0.3);}
+.badge-free{background:rgba(76,175,138,0.12);color:#4caf8a;border:1px solid rgba(76,175,138,0.2);}
+.badge-progress{background:rgba(255,200,80,0.1);color:#d4a84b;border:1px solid rgba(255,200,80,0.18);}
+.tool-name{font-family:'Fraunces',serif;font-size:14px;font-weight:300;color:var(--text);margin-bottom:5px;line-height:1.3;}
+.tool-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:300;color:var(--muted);line-height:1.6;flex:1;}
+.tool-link{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;color:var(--accent2);margin-top:12px;letter-spacing:0.04em;}
+
+/* No results */
+.no-results{text-align:center;padding:3rem 1rem;color:var(--dim);font-size:13px;}
+
+/* Divider */
+.section-divider{height:1px;background:rgba(255,255,255,0.07);margin:0.5rem 0;}
+
+/* Footer rule + footer */
+.page-footer-rule{width:100%;height:1.5px;background:rgba(134,20,66,0.5);margin-top:3rem;}
+.page-footer{background:var(--topbar);padding:1rem clamp(16px,4vw,2rem);text-align:center;}
+.footer-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);}
+.footer-text a{color:rgba(255,255,255,0.3);text-decoration:none;}
+.footer-text a:hover{color:var(--accent2);}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.kot-anim{animation:fadeUp 0.4s ease both;}
+</style>
+</head>
+<body>
+
+<!-- Top bar -->
+<header class="kot-bar">
+  <a class="kot-logo" href="#">
+    <svg width="22" height="22" viewBox="0 0 54 54" fill="none">
+      <rect x="0" y="0" width="24" height="24" fill="#861442"/>
+      <rect x="30" y="0" width="24" height="24" fill="#ffffff" opacity="0.6"/>
+      <rect x="0" y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
+      <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
+    </svg>
+    <span class="kot-logo-text">Data on Tap</span>
+  </a>
+  <nav class="kot-nav">
+    <a href="#">Tools</a>
+    <a href="#">How it's built</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="kot-hero">
+  <div class="hero-inner">
+    <div class="kot-eyebrow">dataontap.dev · AI-powered tools</div>
+    <h1 class="kot-h1"><strong>Turn data</strong> into clarity.<br><em>Build</em> what moves the needle.</h1>
+    <p class="kot-sub">A working library of AI-powered business intelligence tools. Each one built on the same repeatable stack — Claude API, Google Sheets, Vercel. Free to use. Built to show what's possible.</p>
+    <div class="hero-tags">
+      <span class="hero-tag accent">Claude API</span>
+      <span class="hero-tag">Google Sheets</span>
+      <span class="hero-tag">Vercel</span>
+      <span class="hero-tag">GitHub</span>
+    </div>
+  </div>
+</section>
+
+<!-- Main -->
+<main class="main">
+
+  <!-- Type filter -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Browse by type</span>
+    </div>
+    <div class="type-grid" id="typeGrid">
+      <div class="type-card" data-type="all" onclick="filterTools(this,'all')">
+        <div class="type-rule"></div>
+        <div class="type-name">All tools</div>
+        <div class="type-desc">The full library</div>
+        <div class="type-count" id="count-all"></div>
+      </div>
+      <div class="type-card" data-type="data" onclick="filterTools(this,'data')">
+        <div class="type-rule"></div>
+        <div class="type-name">Data &amp; Econ Dev</div>
+        <div class="type-desc">Real datasets, AI as interpreter</div>
+        <div class="type-count" id="count-data"></div>
+      </div>
+      <div class="type-card" data-type="pov" onclick="filterTools(this,'pov')">
+        <div class="type-rule"></div>
+        <div class="type-name">POV</div>
+        <div class="type-desc">AI-powered proprietary frameworks</div>
+        <div class="type-count" id="count-pov"></div>
+      </div>
+      <div class="type-card" data-type="quiz" onclick="filterTools(this,'quiz')">
+        <div class="type-rule"></div>
+        <div class="type-name">Quiz</div>
+        <div class="type-desc">Query-driven, did-you-know apps</div>
+        <div class="type-count" id="count-quiz"></div>
+      </div>
+      <div class="type-card" data-type="generator" onclick="filterTools(this,'generator')">
+        <div class="type-rule"></div>
+        <div class="type-name">Generator</div>
+        <div class="type-desc">Inputs in, finished outputs out</div>
+        <div class="type-count" id="count-generator"></div>
+      </div>
+    </div>
+
+    <div class="section-divider"></div>
+
+    <!-- Tools section -->
+    <div style="padding-top:1.5rem;">
+      <div class="section-header">
+        <span class="section-title" id="toolsSectionTitle">Recent tools</span>
+        <span class="section-count" id="toolsSectionCount"></span>
+      </div>
+      <div class="tools-grid" id="toolsGrid"></div>
+      <div class="no-results" id="noResults" style="display:none;">No tools in this category yet — check back soon.</div>
+    </div>
+  </section>
+
+</main>
+
+<div class="page-footer-rule"></div>
+<footer class="page-footer">
+  <p class="footer-text">© 2026 Data on Tap · Knowledge on Tap · <a href="https://monicapoling.com">monicapoling.com</a></p>
+</footer>
+
+<script>
+const TOOLS = [
+  {
+    id:'power-score',
+    name:'POWER Score',
+    desc:'Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation.',
+    type:'pov',
+    typeLabel:'POV',
+    status:'live',
+    url:'https://power-score.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png',
+    date:'2026-03-01'
+  },
+  {
+    id:'creative-industries',
+    name:'Creative Industries Scorecard',
+    desc:'Measure the economic impact of your state\'s creative industries against the national average. 50M+ jobs, 2× U.S. growth rate.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'live',
+    url:'https://creative-industries.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Creative-Industries-App-Cover-300x180.png',
+    date:'2026-04-01'
+  },
+  {
+    id:'nm-visitor-spending',
+    name:'New Mexico Visitor Spending',
+    desc:'42M visitors. Nearly $9B in spending. Explore how New Mexico tourism dollars flow through the state economy.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'live',
+    url:'https://monicapoling.com/wp-content/uploads/apps/nmtrue/nm-visitor-spend.html',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/New-Mexico-Visitor-Spending-App-Cover-300x180.png',
+    date:'2026-03-15'
+  },
+  {
+    id:'wheels-quiz',
+    name:'WHEELS Museum History Quiz',
+    desc:'How well do you know Albuquerque\'s railroad and Route 66 story? 10 questions, each tied to a WHEELS Museum exhibit.',
+    type:'quiz',
+    typeLabel:'Quiz',
+    status:'live',
+    url:'https://monicapoling.com/wheels',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Wheels-Museum-App-Cover-300x180.png',
+    date:'2026-04-05'
+  },
+  {
+    id:'color-palette',
+    name:'Color Palette Generator',
+    desc:'Search any Pixabay image, pick the one that matches your brand mood, and generate an instant color palette.',
+    type:'generator',
+    typeLabel:'Generator',
+    status:'live',
+    url:'https://color-palette-dot.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/color-palette-og-300x157.png',
+    date:'2026-04-10'
+  },
+  {
+    id:'shark-tank',
+    name:'Shark Tank Explorer',
+    desc:'Dive into the Shark Tank data. Match your business to the right shark and explore deal patterns.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/sharks/shark-tank-explorer.html',
+    img:null,
+    date:'2026-04-12'
+  },
+  {
+    id:'community-builder',
+    name:'Map Your Community',
+    desc:'Zip-based community intelligence scorecard. Data-driven indicators, narrative, and action columns for EDOs and chambers.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/community/barelas-scorecard.html',
+    img:null,
+    date:'2026-04-08'
+  },
+  {
+    id:'enchanted-artists',
+    name:'Meet the Enchanted Artists',
+    desc:'A searchable directory of New Mexico book artists — 68+ makers, Google Sheets backend, Cloudinary images.',
+    type:'generator',
+    typeLabel:'Generator',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/book-arts/enchanted-artists.html',
+    img:null,
+    date:'2026-03-20'
+  }
+];
+
+TOOLS.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+function countsByType(){
+  const counts={all:0,data:0,pov:0,quiz:0,generator:0};
+  TOOLS.forEach(t=>{counts.all++;counts[t.type]=(counts[t.type]||0)+1;});
+  return counts;
+}
+
+function updateCounts(){
+  const c=countsByType();
+  Object.keys(c).forEach(k=>{
+    const el=document.getElementById('count-'+k);
+    if(el) el.textContent=c[k]+' tool'+(c[k]!==1?'s':'');
+  });
+}
+
+function makePlaceholder(){
+  return `<div class="tool-thumb-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f0ede8" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>`;
+}
+
+function makeCard(tool){
+  const thumb=tool.img
+    ?`<img class="tool-thumb" src="${tool.img}" alt="${tool.name}" onerror="this.parentNode.innerHTML='${makePlaceholder().replace(/'/g,"\\'")}';">`
+    :makePlaceholder();
+  const statusBadge=tool.status==='progress'
+    ?`<span class="badge badge-progress">In progress</span>`
+    :`<span class="badge badge-free">Live</span>`;
+  return `
+    <a class="tool-card kot-anim" href="${tool.url}" target="_blank" rel="noopener">
+      ${thumb}
+      <div class="tool-body">
+        <div class="tool-meta">
+          <span class="badge badge-type">${tool.typeLabel}</span>
+          ${statusBadge}
+        </div>
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-desc">${tool.desc}</div>
+        <div class="tool-link">View tool →</div>
+      </div>
+    </a>`;
+}
+
+let activeType='all';
+
+function filterTools(el,type){
+  document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  activeType=type;
+  renderTools();
+}
+
+function renderTools(){
+  const grid=document.getElementById('toolsGrid');
+  const noResults=document.getElementById('noResults');
+  const title=document.getElementById('toolsSectionTitle');
+  const countEl=document.getElementById('toolsSectionCount');
+
+  const filtered=activeType==='all'?TOOLS:TOOLS.filter(t=>t.type===activeType);
+
+  if(filtered.length===0){
+    grid.innerHTML='';
+    noResults.style.display='block';
+    title.textContent='Tools';
+    countEl.textContent='';
+    return;
+  }
+
+  noResults.style.display='none';
+  const typeNames={all:'Recent tools',data:'Data & Econ Dev',pov:'POV',quiz:'Quiz',generator:'Generator'};
+  title.textContent=typeNames[activeType]||'Tools';
+  countEl.textContent=filtered.length+' tool'+(filtered.length!==1?'s':'');
+  grid.innerHTML=filtered.map(makeCard).join('');
+}
+
+// Init
+updateCounts();
+renderTools();
+// Set "All tools" active on load
+document.querySelector('[data-type="all"]').classList.add('active');
+</script>
+</body>
+</html>
