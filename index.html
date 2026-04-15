@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Data on Tap — AI-Powered Business Tools | Knowledge on Tap</title>
+<title>Data on Tap | AI-Powered Business Tools</title>
 <meta name="description" content="A working library of AI-powered business intelligence tools. Built with Claude API, deployed on Vercel. Free to use. 🛠️">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -43,7 +43,7 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 /* Section */
 .section{padding:2rem 0 1rem;}
 .section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;}
-.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);}
 .section-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);}
 
 /* Type grid */
@@ -54,11 +54,21 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 .type-card.active{border-color:var(--accent);background:rgba(134,20,66,0.12);}
 .type-rule{height:2px;width:20px;background:var(--accent);border-radius:1px;margin-bottom:10px;transition:width 0.2s;}
 .type-card.active .type-rule{width:32px;}
-.type-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;color:var(--text);margin-bottom:3px;}
+.type-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;color:#f0ede8;margin-bottom:3px;}
 .type-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:300;color:var(--muted);line-height:1.4;}
 .type-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);margin-top:8px;}
 
-/* Tools grid */
+/* Featured tool */
+.featured-card{background:var(--surface);border:1px solid rgba(134,20,66,0.3);border-radius:var(--radius);overflow:hidden;display:flex;text-decoration:none;transition:border-color 0.15s;margin-bottom:2.5rem;}
+.featured-card:hover{border-color:rgba(134,20,66,0.6);}
+.featured-thumb{width:280px;min-height:160px;object-fit:cover;background:var(--surface2);flex-shrink:0;display:block;}
+.featured-thumb-placeholder{width:280px;min-height:160px;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.featured-body{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;}
+.featured-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
+.featured-name{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:8px;}
+.featured-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.featured-link{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;color:var(--accent2);letter-spacing:0.04em;}
+@media(max-width:600px){.featured-card{flex-direction:column;}.featured-thumb,.featured-thumb-placeholder{width:100%;min-height:180px;}}
 .tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
 @media(max-width:560px){.tools-grid{grid-template-columns:1fr;}}
 .tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:border-color 0.15s;}
@@ -82,12 +92,18 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 /* Divider */
 .section-divider{height:1px;background:rgba(255,255,255,0.07);margin:0.5rem 0;}
 
-/* Footer rule + footer */
-.page-footer-rule{width:100%;height:1.5px;background:rgba(134,20,66,0.5);margin-top:3rem;}
-.page-footer{background:var(--topbar);padding:1rem clamp(16px,4vw,2rem);text-align:center;}
-.footer-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.25);}
-.footer-text a{color:rgba(255,255,255,0.3);text-decoration:none;}
-.footer-text a:hover{color:var(--accent2);}
+/* Footer */
+.page-footer{margin-top:4rem;border-top:1px solid rgba(255,255,255,0.07);padding:2.5rem clamp(16px,4vw,2rem) 2rem;}
+.footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-brand{display:flex;flex-direction:column;gap:6px;}
+.footer-logo{display:flex;align-items:center;gap:8px;}
+.footer-logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.footer-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,0.25);max-width:260px;line-height:1.6;}
+.footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.footer-links a{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.04em;}
+.footer-links a:hover{color:var(--accent2);}
+.footer-copy{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.15);margin-top:2rem;max-width:860px;margin-left:auto;margin-right:auto;}
+@media(max-width:560px){.footer-inner{flex-direction:column;}.footer-links{align-items:flex-start;}}
 
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
 .kot-anim{animation:fadeUp 0.4s ease both;}
@@ -140,38 +156,47 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
         <div class="type-rule"></div>
         <div class="type-name">All tools</div>
         <div class="type-desc">The full library</div>
-        <div class="type-count" id="count-all"></div>
       </div>
       <div class="type-card" data-type="data" onclick="filterTools(this,'data')">
         <div class="type-rule"></div>
         <div class="type-name">Data &amp; Econ Dev</div>
         <div class="type-desc">Real datasets, AI as interpreter</div>
-        <div class="type-count" id="count-data"></div>
-      </div>
-      <div class="type-card" data-type="pov" onclick="filterTools(this,'pov')">
-        <div class="type-rule"></div>
-        <div class="type-name">POV</div>
-        <div class="type-desc">AI-powered proprietary frameworks</div>
-        <div class="type-count" id="count-pov"></div>
       </div>
       <div class="type-card" data-type="quiz" onclick="filterTools(this,'quiz')">
         <div class="type-rule"></div>
         <div class="type-name">Quiz</div>
         <div class="type-desc">Query-driven, did-you-know apps</div>
-        <div class="type-count" id="count-quiz"></div>
       </div>
       <div class="type-card" data-type="generator" onclick="filterTools(this,'generator')">
         <div class="type-rule"></div>
         <div class="type-name">Generator</div>
         <div class="type-desc">Inputs in, finished outputs out</div>
-        <div class="type-count" id="count-generator"></div>
       </div>
     </div>
 
     <div class="section-divider"></div>
 
-    <!-- Tools section -->
-    <div style="padding-top:1.5rem;">
+  </section>
+
+  <!-- Featured Tool -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Featured Tool</span>
+    </div>
+    <a class="featured-card kot-anim" href="https://power-score.vercel.app/" target="_blank" rel="noopener">
+      <img class="featured-thumb" src="https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png" alt="POWER Score" onerror="this.onerror=null;this.outerHTML='<div class=featured-thumb-placeholder></div>';">
+      <div class="featured-body">
+        <div class="featured-eyebrow">POV · Free Tool</div>
+        <div class="featured-name">POWER Score</div>
+        <div class="featured-desc">Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation. Built on Monica's proprietary positioning framework.</div>
+        <div class="featured-link">Try the POWER Score →</div>
+      </div>
+    </a>
+  </section>
+
+  <!-- Tools section -->
+  <section class="section">
+    <div style="padding-top:0.5rem;">
       <div class="section-header">
         <span class="section-title" id="toolsSectionTitle">Recent tools</span>
         <span class="section-count" id="toolsSectionCount"></span>
@@ -184,9 +209,58 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 </main>
 
 <div class="page-footer-rule"></div>
+
+<!-- Newsletter -->
+<div style="background:#1a1a18;padding:2rem clamp(16px,4vw,2rem);">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="background:#242422;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:#be3650;margin-bottom:0.4rem;">Subscribe Now</div>
+        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#8a8a84;line-height:1.6;margin:0;">Turn what you know into what you're known for. Weekly ideas on using AI to organize, share, and monetize your expertise.</p>
+      </div>
+      <div id="newsletterForm" style="display:flex;flex-direction:column;gap:8px;min-width:220px;flex:0 0 260px;">
+        <input type="text" id="nlFirstName" placeholder="First name" style="background:#111110;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:9px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#f0ede8;outline:none;">
+        <input type="email" id="nlEmail" placeholder="your@email.com" style="background:#111110;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:9px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#f0ede8;outline:none;">
+        <button onclick="handleNewsletterSubmit()" style="background:#861442;color:#fff;border:none;border-radius:10px;padding:10px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity .18s;">Subscribe Now</button>
+      </div>
+      <div id="newsletterThanks" style="display:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#4caf8a;font-weight:400;align-self:center;">✓ You're in! Watch for Let's Make Some Noise.</div>
+    </div>
+  </div>
+</div>
+
+<div class="page-footer-rule"></div>
+
 <footer class="page-footer">
-  <p class="footer-text">© 2026 Data on Tap · Knowledge on Tap · <a href="https://monicapoling.com">monicapoling.com</a></p>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="18" height="18" viewBox="0 0 54 54" fill="none">
+          <rect x="0" y="0" width="24" height="24" fill="#861442"/>
+          <rect x="30" y="0" width="24" height="24" fill="#ffffff" opacity="0.6"/>
+          <rect x="0" y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
+          <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
+        </svg>
+        <span class="footer-logo-text">Data on Tap</span>
+      </div>
+      <p class="footer-tagline">A working library of AI-powered business tools. Built to show what's possible.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://monicapoling.com">monicapoling.com</a>
+      <a href="https://monicapoling.com/speaking">Speaking & Workshops</a>
+      <a href="https://linkedin.com/in/monicapoling" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Monica Poling · Data on Tap · Built with Claude API, Google Sheets & Vercel</p>
 </footer>
+
+<script>
+function handleNewsletterSubmit(){
+  const email=document.getElementById('nlEmail').value.trim();
+  if(!email) return;
+  document.getElementById('newsletterForm').style.display='none';
+  document.getElementById('newsletterThanks').style.display='block';
+}
+</script>
 
 <script>
 const TOOLS = [
@@ -283,7 +357,7 @@ const TOOLS = [
 TOOLS.sort((a,b)=>new Date(b.date)-new Date(a.date));
 
 function countsByType(){
-  const counts={all:0,data:0,pov:0,quiz:0,generator:0};
+  const counts={all:0,data:0,quiz:0,generator:0};
   TOOLS.forEach(t=>{counts.all++;counts[t.type]=(counts[t.type]||0)+1;});
   return counts;
 }
@@ -302,7 +376,7 @@ function makePlaceholder(){
 
 function makeCard(tool){
   const thumb=tool.img
-    ?`<img class="tool-thumb" src="${tool.img}" alt="${tool.name}" onerror="this.parentNode.innerHTML='${makePlaceholder().replace(/'/g,"\\'")}';">`
+    ?`<img class="tool-thumb" src="${tool.img}" alt="${tool.name}" onerror="this.onerror=null;this.parentNode.innerHTML=makePlaceholder();">`
     :makePlaceholder();
   const statusBadge=tool.status==='progress'
     ?`<span class="badge badge-progress">In progress</span>`
@@ -355,7 +429,6 @@ function renderTools(){
 }
 
 // Init
-updateCounts();
 renderTools();
 // Set "All tools" active on load
 document.querySelector('[data-type="all"]').classList.add('active');
