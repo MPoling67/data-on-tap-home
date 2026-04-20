@@ -18,24 +18,35 @@
 body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;min-height:100vh;}
 
 /* Top bar */
-.kot-bar{background:var(--topbar);padding:8px clamp(16px,4vw,2rem);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100;}
-.kot-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
-.kot-logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.kot-bar{background:var(--topbar);padding:10px clamp(16px,4vw,2rem);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100;}
+.kot-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
+.kot-logo-lockup{display:flex;flex-direction:column;gap:2px;}
+.kot-logo-title{font-family:'Fraunces',Georgia,serif;font-size:20px;line-height:1;color:#fff;}
+.kot-logo-title strong{font-weight:700;font-style:normal;}
+.kot-logo-title em{font-weight:300;font-style:italic;color:var(--accent2);}
 .kot-nav{display:flex;gap:20px;align-items:center;}
 .kot-nav a{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.04em;}
 .kot-nav a:hover{color:var(--accent2);}
 
-/* Hero */
-.kot-hero{background:var(--topbar);padding:2.5rem clamp(16px,4vw,2rem) 2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
-.hero-inner{max-width:860px;margin:0 auto;}
-.kot-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;}
-.kot-h1{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,36px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:12px;}
-.kot-h1 strong{font-weight:700;}
-.kot-h1 em{font-style:italic;color:var(--accent2);}
-.kot-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:18px;max-width:560px;}
+/* Hero — Power Score pattern */
+.kot-hero{width:100%;background:#111110;display:flex;align-items:stretch;min-height:220px;max-height:280px;}
+.kot-hero-left{flex:3;padding:2rem clamp(16px,4vw,2rem);display:flex;flex-direction:column;justify-content:center;gap:14px;}
+.kot-hero-logo{display:flex;align-items:center;gap:14px;}
+.kot-hero-title{font-family:'Fraunces',Georgia,serif;font-size:clamp(36px,6vw,52px);color:#f0ede8;line-height:1;letter-spacing:-0.02em;}
+.kot-hero-title strong{font-weight:600;color:#f0ede8;}
+.kot-hero-title em{font-weight:300;font-style:italic;color:#be3650;}
+.kot-hero-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:300;line-height:1.4;color:var(--muted);max-width:520px;}
+.kot-hero-sub p+p{margin-top:0.5rem;}
+.kot-hero-sub .lead{font-weight:500;color:#f0ede8;}
+.kot-hero-right{flex:0 0 230px;min-width:200px;max-width:230px;position:relative;overflow:hidden;background:#1a1a18;}
+.kot-hero-right img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block;}
+.kot-dim-bar{background:#111110;display:flex;align-items:center;border-top:1.5px solid rgba(134,20,66,0.5);border-bottom:1.5px solid rgba(134,20,66,0.5);}
+.kot-dim-col{flex:1;text-align:center;padding:8px 4px;font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#f0ede8;}
+.kot-dim-pipe{width:1px;height:18px;background:rgba(255,255,255,0.12);flex-shrink:0;}
 .hero-tags{display:flex;gap:6px;flex-wrap:wrap;}
 .hero-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.35);}
 .hero-tag.accent{background:rgba(134,20,66,0.2);border-color:rgba(134,20,66,0.4);color:var(--accent2);}
+@media(max-width:500px){.kot-hero-right{display:none;}}
 
 /* Main content */
 .main{max-width:860px;margin:0 auto;padding:0 clamp(16px,4vw,2rem);}
@@ -123,13 +134,32 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 <!-- Top bar -->
 <header class="kot-bar">
   <a class="kot-logo" href="#">
-    <svg width="22" height="22" viewBox="0 0 54 54" fill="none">
-      <rect x="0" y="0" width="24" height="24" fill="#861442"/>
-      <rect x="30" y="0" width="24" height="24" fill="#ffffff" opacity="0.6"/>
-      <rect x="0" y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
-      <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
+    <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+      <rect width="64" height="64" fill="#111110" rx="8"/>
+      <circle cx="32" cy="6"  r="2"   fill="#ffffff" opacity="0.18"/>
+      <circle cx="26" cy="13" r="2.5" fill="#ffffff" opacity="0.22"/>
+      <circle cx="37" cy="15" r="2"   fill="#ffffff" opacity="0.18"/>
+      <circle cx="31" cy="20" r="3"   fill="#ffffff" opacity="0.28"/>
+      <circle cx="18" cy="27" r="3"   fill="#ffffff" opacity="0.42"/>
+      <circle cx="28" cy="24" r="3.5" fill="#ffffff" opacity="0.5"/>
+      <circle cx="38" cy="25" r="3"   fill="#ffffff" opacity="0.45"/>
+      <circle cx="15" cy="35" r="3.5" fill="#ffffff" opacity="0.45"/>
+      <circle cx="25" cy="31" r="4"   fill="#ffffff" opacity="0.52"/>
+      <circle cx="35" cy="30" r="4"   fill="#861442" opacity="0.42"/>
+      <circle cx="45" cy="33" r="3.5" fill="#861442" opacity="0.38"/>
+      <circle cx="14" cy="43" r="4"   fill="#861442" opacity="0.55"/>
+      <circle cx="24" cy="39" r="5"   fill="#861442" opacity="0.7"/>
+      <circle cx="34" cy="38" r="5.5" fill="#861442" opacity="0.82"/>
+      <circle cx="44" cy="40" r="4.5" fill="#861442" opacity="0.72"/>
+      <circle cx="18" cy="51" r="4.5" fill="#861442" opacity="0.88"/>
+      <circle cx="28" cy="47" r="5.5" fill="#861442" opacity="1"/>
+      <circle cx="38" cy="46" r="6"   fill="#861442" opacity="1"/>
+      <circle cx="48" cy="49" r="4.5" fill="#861442" opacity="0.9"/>
+      <circle cx="23" cy="58" r="4"   fill="#861442" opacity="0.85"/>
+      <circle cx="33" cy="56" r="5"   fill="#861442" opacity="1"/>
+      <circle cx="43" cy="57" r="4"   fill="#861442" opacity="0.78"/>
     </svg>
-    <span class="kot-logo-text">Data on Tap</span>
+    <div class="kot-logo-title"><strong>Data</strong> <em>on Tap</em></div>
   </a>
   <nav class="kot-nav">
     <a href="#">Tools</a>
@@ -139,10 +169,44 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
 
 <!-- Hero -->
 <section class="kot-hero">
-  <div class="hero-inner">
-    <div class="kot-eyebrow">dataontap.dev · AI-powered tools</div>
-    <h1 class="kot-h1"><strong>Data on Tap</strong><br><em>Less artificial. More intelligence.</em></h1>
-    <p class="kot-sub">A free library of mini Business Intelligence Tools (BITs) for people who get unreasonably excited about data. And who want to use AI to tell smarter stories.</p>
+  <div class="kot-hero-left">
+    <div class="kot-hero-logo">
+      <svg width="52" height="52" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" fill="#111110" rx="8"/>
+        <circle cx="32" cy="6"  r="2"   fill="#ffffff" opacity="0.18"/>
+        <circle cx="26" cy="13" r="2.5" fill="#ffffff" opacity="0.22"/>
+        <circle cx="37" cy="15" r="2"   fill="#ffffff" opacity="0.18"/>
+        <circle cx="31" cy="20" r="3"   fill="#ffffff" opacity="0.28"/>
+        <circle cx="41" cy="19" r="2"   fill="#ffffff" opacity="0.18"/>
+        <circle cx="22" cy="19" r="2"   fill="#ffffff" opacity="0.2"/>
+        <circle cx="18" cy="27" r="3"   fill="#ffffff" opacity="0.42"/>
+        <circle cx="28" cy="24" r="3.5" fill="#ffffff" opacity="0.5"/>
+        <circle cx="38" cy="25" r="3"   fill="#ffffff" opacity="0.45"/>
+        <circle cx="46" cy="28" r="2.5" fill="#ffffff" opacity="0.35"/>
+        <circle cx="15" cy="35" r="3.5" fill="#ffffff" opacity="0.45"/>
+        <circle cx="25" cy="31" r="4"   fill="#ffffff" opacity="0.52"/>
+        <circle cx="35" cy="30" r="4"   fill="#861442" opacity="0.42"/>
+        <circle cx="45" cy="33" r="3.5" fill="#861442" opacity="0.38"/>
+        <circle cx="51" cy="38" r="2.5" fill="#861442" opacity="0.28"/>
+        <circle cx="14" cy="43" r="4"   fill="#861442" opacity="0.55"/>
+        <circle cx="24" cy="39" r="5"   fill="#861442" opacity="0.7"/>
+        <circle cx="34" cy="38" r="5.5" fill="#861442" opacity="0.82"/>
+        <circle cx="44" cy="40" r="4.5" fill="#861442" opacity="0.72"/>
+        <circle cx="52" cy="45" r="3"   fill="#861442" opacity="0.45"/>
+        <circle cx="18" cy="51" r="4.5" fill="#861442" opacity="0.88"/>
+        <circle cx="28" cy="47" r="5.5" fill="#861442" opacity="1"/>
+        <circle cx="38" cy="46" r="6"   fill="#861442" opacity="1"/>
+        <circle cx="48" cy="49" r="4.5" fill="#861442" opacity="0.9"/>
+        <circle cx="23" cy="58" r="4"   fill="#861442" opacity="0.85"/>
+        <circle cx="33" cy="56" r="5"   fill="#861442" opacity="1"/>
+        <circle cx="43" cy="57" r="4"   fill="#861442" opacity="0.78"/>
+      </svg>
+      <div class="kot-hero-title"><strong>Data</strong> <em>on Tap</em></div>
+    </div>
+    <div class="kot-hero-sub">
+      <p class="lead">Are you unreasonably excited about data?</p>
+      <p>A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution.</p>
+    </div>
     <div class="hero-tags">
       <span class="hero-tag accent">Claude API</span>
       <span class="hero-tag">Google Sheets</span>
@@ -150,7 +214,23 @@ body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans
       <span class="hero-tag">GitHub</span>
     </div>
   </div>
+  <div class="kot-hero-right">
+    <img src="/monica-poling-dot-hero.jpg" alt="Monica Poling, founder of Data on Tap">
+  </div>
 </section>
+
+<!-- Dimension strip -->
+<div class="kot-dim-bar">
+  <div class="kot-dim-col">Data</div>
+  <div class="kot-dim-pipe"></div>
+  <div class="kot-dim-col">POV</div>
+  <div class="kot-dim-pipe"></div>
+  <div class="kot-dim-col">Quiz</div>
+  <div class="kot-dim-pipe"></div>
+  <div class="kot-dim-col">Lesson Plan</div>
+  <div class="kot-dim-pipe"></div>
+  <div class="kot-dim-col">Calculator</div>
+</div>
 
 <!-- Main -->
 <main class="main">
