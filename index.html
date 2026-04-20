@@ -1,327 +1,446 @@
-<!-- ============================================================
-     DATA ON TAP — Hero Section Replacement
-     Drop this into index.html, replacing everything from the
-     top-bar div through the end of the browse-by-type section.
-     Image: /public/monica-poling-dot-hero.jpg
-     Fonts loaded via Google Fonts in <head> (see note below)
-     ============================================================
-
-     ADD TO <head> if not already present:
-     <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
--->
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Data on Tap | AI-Powered Business Tools</title>
+<meta name="description" content="A working library of AI-powered business intelligence tools. Built with Claude API, deployed on Vercel. Free to use. 🛠️">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,700;1,9..144,300&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  /* ── Reset / base ── */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --bg:#1a1a18;--surface:#242422;--surface2:#2e2e2b;
+  --border:rgba(255,255,255,0.08);--border2:rgba(255,255,255,0.14);
+  --text:#f0ede8;--muted:#c8c4bc;--dim:#5a5a56;
+  --accent:#861442;--accent2:#be3650;--radius:10px;
+  --topbar:#111110;
+}
+body{background:var(--bg);color:var(--text);font-family:'Plus Jakarta Sans',sans-serif;font-weight:300;min-height:100vh;}
 
-  /* ── Top bar ── */
-  .dot-topbar {
-    background: #111110;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    padding: 7px clamp(16px,4vw,2rem);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
-  }
+/* Top bar */
+.kot-bar{background:var(--topbar);padding:8px clamp(16px,4vw,2rem);display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,0.06);position:sticky;top:0;z-index:100;}
+.kot-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.kot-logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.kot-nav{display:flex;gap:20px;align-items:center;}
+.kot-nav a{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.35);text-decoration:none;letter-spacing:0.04em;}
+.kot-nav a:hover{color:var(--accent2);}
 
-  /* ── Hero ── */
-  .dot-hero {
-    background: #111110;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-    align-items: stretch;
-    min-height: 340px;
-    overflow: hidden;
-  }
+/* Hero */
+.kot-hero{background:var(--topbar);padding:2.5rem clamp(16px,4vw,2rem) 2rem;border-bottom:1px solid rgba(255,255,255,0.06);}
+.hero-inner{max-width:860px;margin:0 auto;}
+.kot-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);margin-bottom:10px;}
+.kot-h1{font-family:'Fraunces',serif;font-size:clamp(22px,4vw,36px);font-weight:300;color:#fff;line-height:1.2;margin-bottom:12px;}
+.kot-h1 strong{font-weight:700;}
+.kot-h1 em{font-style:italic;color:var(--accent2);}
+.kot-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:300;color:rgba(255,255,255,0.55);line-height:1.75;margin-bottom:18px;max-width:560px;}
+.hero-tags{display:flex;gap:6px;flex-wrap:wrap;}
+.hero-tag{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;padding:3px 10px;border-radius:20px;border:1px solid rgba(255,255,255,0.1);color:rgba(255,255,255,0.35);}
+.hero-tag.accent{background:rgba(134,20,66,0.2);border-color:rgba(134,20,66,0.4);color:var(--accent2);}
 
-  .dot-hero-left {
-    flex: 1 1 58%;
-    padding: 2.5rem clamp(16px,4vw,2rem) 2.25rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
+/* Main content */
+.main{max-width:860px;margin:0 auto;padding:0 clamp(16px,4vw,2rem);}
 
-  .dot-hero-eyebrow {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #be3650;
-    margin-bottom: 0.85rem;
-  }
+/* Section */
+.section{padding:2rem 0 1rem;}
+.section-header{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:1.25rem;}
+.section-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--accent2);}
+.section-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);}
 
-  .dot-hero-title {
-    font-family: 'Fraunces', Georgia, serif;
-    line-height: 1.08;
-    margin-bottom: 1rem;
-  }
+/* Type grid */
+.type-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:2.5rem;}
+@media(max-width:600px){.type-grid{grid-template-columns:repeat(2,minmax(0,1fr));}}
+.type-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 14px 12px;cursor:pointer;transition:border-color 0.15s,background 0.15s;user-select:none;}
+.type-card:hover{border-color:var(--border2);}
+.type-card.active{border-color:var(--accent);background:rgba(134,20,66,0.12);}
+.type-rule{height:2px;width:20px;background:var(--accent);border-radius:1px;margin-bottom:10px;transition:width 0.2s;}
+.type-card.active .type-rule{width:32px;}
+.type-name{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:500;color:#f0ede8;margin-bottom:3px;}
+.type-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:300;color:var(--muted);line-height:1.4;}
+.type-count{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:var(--dim);margin-top:8px;}
 
-  .dot-hero-title .t1 {
-    display: block;
-    font-weight: 700;
-    font-style: normal;
-    font-size: clamp(34px, 5vw, 54px);
-    color: #fff;
-  }
+/* Featured tool */
+.featured-card{background:var(--surface);border:1px solid rgba(134,20,66,0.3);border-radius:var(--radius);overflow:hidden;display:flex;text-decoration:none;transition:border-color 0.15s;margin-bottom:2.5rem;}
+.featured-card:hover{border-color:rgba(134,20,66,0.6);}
+.featured-thumb{width:280px;min-height:160px;object-fit:cover;background:var(--surface2);flex-shrink:0;display:block;}
+.featured-thumb-placeholder{width:280px;min-height:160px;background:var(--surface2);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.featured-body{padding:20px 22px;display:flex;flex-direction:column;justify-content:center;}
+.featured-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:var(--accent2);margin-bottom:8px;}
+.featured-name{font-family:'Fraunces',serif;font-size:20px;font-weight:300;color:#fff;line-height:1.2;margin-bottom:8px;}
+.featured-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:300;color:var(--muted);line-height:1.65;margin-bottom:14px;}
+.featured-link{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;color:var(--accent2);letter-spacing:0.04em;}
+@media(max-width:600px){.featured-card{flex-direction:column;}.featured-thumb,.featured-thumb-placeholder{width:100%;min-height:180px;}}
+.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;}
+@media(max-width:560px){.tools-grid{grid-template-columns:1fr;}}
+.tool-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:border-color 0.15s;}
+.tool-card:hover{border-color:var(--border2);}
+.tool-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;background:var(--surface2);display:block;}
+.tool-thumb-placeholder{width:100%;aspect-ratio:16/9;background:var(--surface2);display:flex;align-items:center;justify-content:center;}
+.tool-thumb-placeholder svg{opacity:0.2;}
+.tool-body{padding:14px 16px 14px;flex:1;display:flex;flex-direction:column;}
+.tool-meta{display:flex;align-items:center;gap:6px;margin-bottom:8px;}
+.badge{font-family:'Plus Jakarta Sans',sans-serif;font-size:9px;font-weight:500;padding:2px 7px;border-radius:20px;letter-spacing:0.04em;}
+.badge-type{background:rgba(134,20,66,0.2);color:var(--accent2);border:1px solid rgba(134,20,66,0.3);}
+.badge-free{background:rgba(76,175,138,0.12);color:#4caf8a;border:1px solid rgba(76,175,138,0.2);}
+.badge-progress{background:rgba(255,200,80,0.1);color:#d4a84b;border:1px solid rgba(255,200,80,0.18);}
+.tool-name{font-family:'Fraunces',serif;font-size:14px;font-weight:300;color:var(--text);margin-bottom:5px;line-height:1.3;}
+.tool-desc{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:300;color:var(--muted);line-height:1.6;flex:1;}
+.tool-link{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:500;color:var(--accent2);margin-top:12px;letter-spacing:0.04em;}
 
-  .dot-hero-title .t2 {
-    display: block;
-    font-weight: 300;
-    font-style: italic;
-    font-size: clamp(24px, 3.8vw, 42px);
-    color: #be3650;
-  }
+/* No results */
+.no-results{text-align:center;padding:3rem 1rem;color:var(--dim);font-size:13px;}
 
-  .dot-hero-desc {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 14px;
-    font-weight: 300;
-    color: rgba(255,255,255,0.6);
-    line-height: 1.75;
-    max-width: 440px;
-    margin-bottom: 1.5rem;
-  }
+/* Divider */
+.section-divider{height:1px;background:rgba(255,255,255,0.07);margin:0.5rem 0;}
 
-  .dot-hero-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-  }
+/* Footer */
+.page-footer{margin-top:4rem;border-top:1px solid rgba(255,255,255,0.07);padding:2.5rem clamp(16px,4vw,2rem) 2rem;}
+.footer-inner{max-width:860px;margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.footer-brand{display:flex;flex-direction:column;gap:6px;}
+.footer-logo{display:flex;align-items:center;gap:8px;}
+.footer-logo-text{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:400;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.35);}
+.footer-tagline{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:300;color:rgba(255,255,255,0.25);max-width:260px;line-height:1.6;}
+.footer-links{display:flex;flex-direction:column;gap:8px;align-items:flex-end;}
+.footer-links a{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;color:rgba(255,255,255,0.3);text-decoration:none;letter-spacing:0.04em;}
+.footer-links a:hover{color:var(--accent2);}
+.footer-copy{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;color:rgba(255,255,255,0.15);margin-top:2rem;max-width:860px;margin-left:auto;margin-right:auto;}
+@media(max-width:560px){.footer-inner{flex-direction:column;}.footer-links{align-items:flex-start;}}
 
-  .dot-tag {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 400;
-    color: rgba(255,255,255,0.4);
-    border: 1px solid rgba(255,255,255,0.12);
-    border-radius: 20px;
-    padding: 4px 13px;
-    line-height: 1.6;
-  }
-
-  .dot-tag-primary {
-    color: #be3650;
-    border-color: rgba(134,20,66,0.55);
-  }
-
-  /* ── Hero right — photo ── */
-  .dot-hero-right {
-    flex: 0 0 40%;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .dot-hero-right img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    display: block;
-  }
-
-  /* Left fade so photo bleeds into the dark bg */
-  .dot-hero-right::before {
-    content: '';
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: 80px;
-    background: linear-gradient(to right, #111110 0%, transparent 100%);
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  /* ── Dimension strip ── */
-  .dot-dim-strip {
-    background: #0d0d0c;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    display: flex;
-  }
-
-  .dot-dim-item {
-    flex: 1;
-    padding: 13px 0;
-    text-align: center;
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.3);
-    border-right: 1px solid rgba(255,255,255,0.06);
-    text-decoration: none;
-    transition: color 0.2s;
-  }
-
-  .dot-dim-item:last-child { border-right: none; }
-  .dot-dim-item:hover { color: #be3650; }
-
-  /* ── Browse by type ── */
-  .dot-browse {
-    background: #1a1a18;
-    padding: 2rem clamp(16px,4vw,2rem);
-  }
-
-  .dot-section-label {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 500;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: #be3650;
-    margin-bottom: 1rem;
-  }
-
-  .dot-type-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-  }
-
-  .dot-type-card {
-    background: #242422;
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 10px;
-    padding: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    display: block;
-    transition: border-color 0.2s, background 0.2s;
-  }
-
-  .dot-type-card:hover {
-    border-color: rgba(134,20,66,0.5);
-    background: #2a2a28;
-  }
-
-  .dot-type-card.active {
-    border-color: #861442;
-  }
-
-  .dot-type-bar {
-    width: 22px;
-    height: 2px;
-    background: #861442;
-    margin-bottom: 0.65rem;
-  }
-
-  .dot-type-name {
-    font-family: 'Fraunces', Georgia, serif;
-    font-weight: 700;
-    font-size: 14px;
-    color: #f0ede8;
-    margin-bottom: 3px;
-  }
-
-  .dot-type-desc {
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    font-size: 11px;
-    font-weight: 300;
-    color: #c8c4bc;
-    line-height: 1.5;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 640px) {
-    .dot-hero { flex-direction: column; }
-    .dot-hero-right {
-      flex: 0 0 240px;
-      width: 100%;
-    }
-    .dot-hero-right::before { display: none; }
-    .dot-dim-strip { flex-wrap: wrap; }
-    .dot-dim-item { flex: 0 0 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
-    .dot-type-grid { grid-template-columns: repeat(2, 1fr); }
-  }
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.kot-anim{animation:fadeUp 0.4s ease both;}
 </style>
 
-<!-- TOP BAR -->
-<div class="dot-topbar">DATAONTAP.DEV · AI-POWERED TOOLS</div>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-M07HT0DYY3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-M07HT0DYY3');
+</script>
+</head>
+<body>
 
-<!-- HERO -->
-<div class="dot-hero">
+<!-- Top bar -->
+<header class="kot-bar">
+  <a class="kot-logo" href="#">
+    <svg width="22" height="22" viewBox="0 0 54 54" fill="none">
+      <rect x="0" y="0" width="24" height="24" fill="#861442"/>
+      <rect x="30" y="0" width="24" height="24" fill="#ffffff" opacity="0.6"/>
+      <rect x="0" y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
+      <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
+    </svg>
+    <span class="kot-logo-text">Data on Tap</span>
+  </a>
+  <nav class="kot-nav">
+    <a href="#">Tools</a>
+    <a href="#">How it's built</a>
+  </nav>
+</header>
 
-  <div class="dot-hero-left">
+<!-- Hero -->
+<section class="kot-hero">
+  <div class="hero-inner">
+    <div class="kot-eyebrow">dataontap.dev · AI-powered tools</div>
+    <h1 class="kot-h1"><strong>Data on Tap</strong><br><em>Less artificial. More intelligence.</em></h1>
+    <p class="kot-sub">A free library of mini Business Intelligence Tools (BITs) for people who get unreasonably excited about data. And who want to use AI to tell smarter stories.</p>
+    <div class="hero-tags">
+      <span class="hero-tag accent">Claude API</span>
+      <span class="hero-tag">Google Sheets</span>
+      <span class="hero-tag">Vercel</span>
+      <span class="hero-tag">GitHub</span>
+    </div>
+  </div>
+</section>
 
-    <div class="dot-hero-eyebrow">
-      <!-- KoT logo mark -->
-      <svg width="20" height="20" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <rect x="0"  y="0"  width="24" height="24" fill="#861442"/>
-        <rect x="30" y="0"  width="24" height="24" fill="#ffffff" opacity="0.6"/>
-        <rect x="0"  y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
-        <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
-      </svg>
-      Knowledge on Tap
+<!-- Main -->
+<main class="main">
+
+  <!-- Type filter -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Browse by type</span>
+    </div>
+    <div class="type-grid" id="typeGrid">
+      <div class="type-card" data-type="all" onclick="filterTools(this,'all')">
+        <div class="type-rule"></div>
+        <div class="type-name">All tools</div>
+        <div class="type-desc">The full library</div>
+      </div>
+      <div class="type-card" data-type="data" onclick="filterTools(this,'data')">
+        <div class="type-rule"></div>
+        <div class="type-name">Data &amp; Econ Dev</div>
+        <div class="type-desc">Real datasets, AI as interpreter</div>
+      </div>
+      <div class="type-card" data-type="quiz" onclick="filterTools(this,'quiz')">
+        <div class="type-rule"></div>
+        <div class="type-name">Quiz</div>
+        <div class="type-desc">Query-driven, did-you-know apps</div>
+      </div>
+      <div class="type-card" data-type="generator" onclick="filterTools(this,'generator')">
+        <div class="type-rule"></div>
+        <div class="type-name">Generator</div>
+        <div class="type-desc">Inputs in, finished outputs out</div>
+      </div>
     </div>
 
-    <h1 class="dot-hero-title">
-      <span class="t1">Data on Tap</span>
-      <span class="t2">Less artificial. More intelligence.</span>
-    </h1>
+    <div class="section-divider"></div>
 
-    <p class="dot-hero-desc">
-      A free library of mini Business Intelligence Tools for people who get unreasonably excited about data — and want to use AI to tell smarter stories.
-    </p>
+  </section>
 
-    <div class="dot-hero-tags">
-      <span class="dot-tag dot-tag-primary">Claude API</span>
-      <span class="dot-tag">Google Sheets</span>
-      <span class="dot-tag">Vercel</span>
-      <span class="dot-tag">GitHub</span>
+  <!-- Featured Tool -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-title">Featured Tool</span>
     </div>
-
-  </div>
-
-  <div class="dot-hero-right">
-    <img src="/monica-poling-dot-hero.jpg" alt="Monica Poling, AI educator and founder of Data on Tap" />
-  </div>
-
-</div>
-
-<!-- DIMENSION STRIP -->
-<div class="dot-dim-strip">
-  <a href="?type=data" class="dot-dim-item">Data</a>
-  <a href="?type=pov" class="dot-dim-item">POV</a>
-  <a href="?type=quiz" class="dot-dim-item">Quiz</a>
-  <a href="?type=lesson" class="dot-dim-item">Lesson Plan</a>
-  <a href="?type=calculator" class="dot-dim-item">Calculator</a>
-</div>
-
-<!-- BROWSE BY TYPE -->
-<div class="dot-browse">
-  <div class="dot-section-label">Browse by Type</div>
-  <div class="dot-type-grid">
-
-    <a href="#all" class="dot-type-card active">
-      <div class="dot-type-bar"></div>
-      <div class="dot-type-name">All tools</div>
-      <div class="dot-type-desc">The full library</div>
+    <a class="featured-card kot-anim" href="https://power-score.vercel.app/" target="_blank" rel="noopener">
+      <img class="featured-thumb" src="https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png" alt="POWER Score" onerror="this.onerror=null;this.outerHTML='<div class=featured-thumb-placeholder></div>';">
+      <div class="featured-body">
+        <div class="featured-eyebrow">POV · Free Tool</div>
+        <div class="featured-name">POWER Score</div>
+        <div class="featured-desc">Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation. Built on Monica's proprietary positioning framework.</div>
+        <div class="featured-link">Try the POWER Score →</div>
+      </div>
     </a>
+  </section>
 
-    <a href="#data" class="dot-type-card">
-      <div class="dot-type-bar"></div>
-      <div class="dot-type-name">Data & Econ Dev</div>
-      <div class="dot-type-desc">Real datasets, AI as interpreter</div>
-    </a>
+  <!-- Tools section -->
+  <section class="section">
+    <div style="padding-top:0.5rem;">
+      <div class="section-header">
+        <span class="section-title" id="toolsSectionTitle">Recent tools</span>
+        <span class="section-count" id="toolsSectionCount"></span>
+      </div>
+      <div class="tools-grid" id="toolsGrid"></div>
+      <div class="no-results" id="noResults" style="display:none;">No tools in this category yet — check back soon.</div>
+    </div>
+  </section>
 
-    <a href="#quiz" class="dot-type-card">
-      <div class="dot-type-bar"></div>
-      <div class="dot-type-name">Quiz</div>
-      <div class="dot-type-desc">Query-driven, did-you-know apps</div>
-    </a>
+</main>
 
-    <a href="#generator" class="dot-type-card">
-      <div class="dot-type-bar"></div>
-      <div class="dot-type-name">Generator</div>
-      <div class="dot-type-desc">Inputs in, finished outputs out</div>
-    </a>
+<div class="page-footer-rule"></div>
 
+<!-- Newsletter -->
+<div style="background:#1a1a18;padding:2rem clamp(16px,4vw,2rem);">
+  <div style="max-width:860px;margin:0 auto;">
+    <div style="background:#242422;border:1px solid rgba(255,255,255,0.08);border-radius:10px;padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;flex-wrap:wrap;">
+      <div style="flex:1;min-width:200px;">
+        <div style="font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:0.14em;color:#be3650;margin-bottom:0.4rem;">Subscribe Now</div>
+        <p style="font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;color:#8a8a84;line-height:1.6;margin:0;">Turn what you know into what you're known for. Weekly ideas on using AI to organize, share, and monetize your expertise.</p>
+      </div>
+      <div id="newsletterForm" style="display:flex;flex-direction:column;gap:8px;min-width:220px;flex:0 0 260px;">
+        <input type="text" id="nlFirstName" placeholder="First name" style="background:#111110;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:9px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#f0ede8;outline:none;">
+        <input type="email" id="nlEmail" placeholder="your@email.com" style="background:#111110;border:1px solid rgba(255,255,255,0.12);border-radius:8px;padding:9px 12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#f0ede8;outline:none;">
+        <button onclick="handleNewsletterSubmit()" style="background:#861442;color:#fff;border:none;border-radius:10px;padding:10px 22px;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:500;cursor:pointer;transition:opacity .18s;">Subscribe Now</button>
+      </div>
+      <div id="newsletterThanks" style="display:none;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:#4caf8a;font-weight:400;align-self:center;">✓ You're in! Watch for Let's Make Some Noise.</div>
+    </div>
   </div>
 </div>
+
+<div class="page-footer-rule"></div>
+
+<footer class="page-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="18" height="18" viewBox="0 0 54 54" fill="none">
+          <rect x="0" y="0" width="24" height="24" fill="#861442"/>
+          <rect x="30" y="0" width="24" height="24" fill="#ffffff" opacity="0.6"/>
+          <rect x="0" y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
+          <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
+        </svg>
+        <span class="footer-logo-text">Data on Tap</span>
+      </div>
+      <p class="footer-tagline">A working library of AI-powered business tools. Built to show what's possible.</p>
+    </div>
+    <div class="footer-links">
+      <a href="https://monicapoling.com">monicapoling.com</a>
+      <a href="https://monicapoling.com/speaking">Speaking & Workshops</a>
+      <a href="https://linkedin.com/in/monicapoling" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </div>
+  <p class="footer-copy">© 2026 Monica Poling · Data on Tap · Built with Claude API, Google Sheets & Vercel</p>
+</footer>
+
+<script>
+function handleNewsletterSubmit(){
+  const email=document.getElementById('nlEmail').value.trim();
+  if(!email) return;
+  document.getElementById('newsletterForm').style.display='none';
+  document.getElementById('newsletterThanks').style.display='block';
+}
+</script>
+
+<script>
+const TOOLS = [
+  {
+    id:'power-score',
+    name:'POWER Score',
+    desc:'Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation.',
+    type:'pov',
+    typeLabel:'POV',
+    status:'live',
+    url:'https://power-score.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png',
+    date:'2026-03-01'
+  },
+  {
+    id:'creative-industries',
+    name:'Creative Industries Scorecard',
+    desc:'Measure the economic impact of your state\'s creative industries against the national average. 50M+ jobs, 2× U.S. growth rate.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'live',
+    url:'https://creative-industries.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Creative-Industries-App-Cover-300x180.png',
+    date:'2026-04-01'
+  },
+  {
+    id:'nm-visitor-spending',
+    name:'New Mexico Visitor Spending',
+    desc:'42M visitors. Nearly $9B in spending. Explore how New Mexico tourism dollars flow through the state economy.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'live',
+    url:'https://monicapoling.com/wp-content/uploads/apps/nmtrue/nm-visitor-spend.html',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/New-Mexico-Visitor-Spending-App-Cover-300x180.png',
+    date:'2026-03-15'
+  },
+  {
+    id:'wheels-quiz',
+    name:'WHEELS Museum History Quiz',
+    desc:'How well do you know Albuquerque\'s railroad and Route 66 story? 10 questions, each tied to a WHEELS Museum exhibit.',
+    type:'quiz',
+    typeLabel:'Quiz',
+    status:'live',
+    url:'https://monicapoling.com/wheels',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/Wheels-Museum-App-Cover-300x180.png',
+    date:'2026-04-05'
+  },
+  {
+    id:'color-palette',
+    name:'Color Palette Generator',
+    desc:'Search any Pixabay image, pick the one that matches your brand mood, and generate an instant color palette.',
+    type:'generator',
+    typeLabel:'Generator',
+    status:'live',
+    url:'https://color-palette-dot.vercel.app/',
+    img:'https://monicapoling.com/wp-content/uploads/2026/04/color-palette-og-300x157.png',
+    date:'2026-04-10'
+  },
+  {
+    id:'shark-tank',
+    name:'Shark Tank Explorer',
+    desc:'Dive into the Shark Tank data. Match your business to the right shark and explore deal patterns.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/sharks/shark-tank-explorer.html',
+    img:null,
+    date:'2026-04-12'
+  },
+  {
+    id:'community-builder',
+    name:'Map Your Community',
+    desc:'Zip-based community intelligence scorecard. Data-driven indicators, narrative, and action columns for EDOs and chambers.',
+    type:'data',
+    typeLabel:'Data & Econ Dev',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/community/barelas-scorecard.html',
+    img:null,
+    date:'2026-04-08'
+  },
+  {
+    id:'enchanted-artists',
+    name:'Meet the Enchanted Artists',
+    desc:'A searchable directory of New Mexico book artists — 68+ makers, Google Sheets backend, Cloudinary images.',
+    type:'generator',
+    typeLabel:'Generator',
+    status:'progress',
+    url:'https://monicapoling.com/wp-content/uploads/apps/book-arts/enchanted-artists.html',
+    img:null,
+    date:'2026-03-20'
+  }
+];
+
+TOOLS.sort((a,b)=>new Date(b.date)-new Date(a.date));
+
+function countsByType(){
+  const counts={all:0,data:0,quiz:0,generator:0};
+  TOOLS.forEach(t=>{counts.all++;counts[t.type]=(counts[t.type]||0)+1;});
+  return counts;
+}
+
+function updateCounts(){
+  const c=countsByType();
+  Object.keys(c).forEach(k=>{
+    const el=document.getElementById('count-'+k);
+    if(el) el.textContent=c[k]+' tool'+(c[k]!==1?'s':'');
+  });
+}
+
+function makePlaceholder(){
+  return `<div class="tool-thumb-placeholder"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#f0ede8" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>`;
+}
+
+function makeCard(tool){
+  const thumb=tool.img
+    ?`<img class="tool-thumb" src="${tool.img}" alt="${tool.name}" onerror="this.onerror=null;this.parentNode.innerHTML=makePlaceholder();">`
+    :makePlaceholder();
+  const statusBadge=tool.status==='progress'
+    ?`<span class="badge badge-progress">In progress</span>`
+    :`<span class="badge badge-free">Live</span>`;
+  return `
+    <a class="tool-card kot-anim" href="${tool.url}" target="_blank" rel="noopener">
+      ${thumb}
+      <div class="tool-body">
+        <div class="tool-meta">
+          <span class="badge badge-type">${tool.typeLabel}</span>
+          ${statusBadge}
+        </div>
+        <div class="tool-name">${tool.name}</div>
+        <div class="tool-desc">${tool.desc}</div>
+        <div class="tool-link">View tool →</div>
+      </div>
+    </a>`;
+}
+
+let activeType='all';
+
+function filterTools(el,type){
+  document.querySelectorAll('.type-card').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  activeType=type;
+  renderTools();
+}
+
+function renderTools(){
+  const grid=document.getElementById('toolsGrid');
+  const noResults=document.getElementById('noResults');
+  const title=document.getElementById('toolsSectionTitle');
+  const countEl=document.getElementById('toolsSectionCount');
+
+  const filtered=activeType==='all'?TOOLS:TOOLS.filter(t=>t.type===activeType);
+
+  if(filtered.length===0){
+    grid.innerHTML='';
+    noResults.style.display='block';
+    title.textContent='Tools';
+    countEl.textContent='';
+    return;
+  }
+
+  noResults.style.display='none';
+  const typeNames={all:'Recent tools',data:'Data & Econ Dev',pov:'POV',quiz:'Quiz',generator:'Generator'};
+  title.textContent=typeNames[activeType]||'Tools';
+  countEl.textContent=filtered.length+' tool'+(filtered.length!==1?'s':'');
+  grid.innerHTML=filtered.map(makeCard).join('');
+}
+
+// Init
+renderTools();
+// Set "All tools" active on load
+document.querySelector('[data-type="all"]').classList.add('active');
+</script>
+</body>
+</html>
