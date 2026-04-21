@@ -249,12 +249,13 @@ export default function App() {
           display: flex;
           align-items: stretch;
           min-height: 220px;
-          max-height: 280px;
+          max-height: 320px;
+          overflow: hidden;
           border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .kot-hero-left {
           flex: 3;
-          padding: 2rem clamp(16px,4vw,2rem);
+          padding: 2rem clamp(16px,4vw,3rem) 2rem clamp(16px,4vw,2rem);
           display: flex;
           flex-direction: column;
           justify-content: center;
