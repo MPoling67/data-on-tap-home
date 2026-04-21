@@ -504,12 +504,12 @@ export default function App() {
           margin-bottom: 8px;
         }
         .nl-heading {
-          font-family: var(--font-display);
-          font-size: 22px;
-          font-weight: 300;
+          font-family: var(--font-body);
+          font-size: 13px;
+          font-weight: 500;
           color: #f0ede8;
-          line-height: 1.2;
-          margin-bottom: 6px;
+          line-height: 1.65;
+          margin-bottom: 2px;
         }
         .nl-body {
           font-family: var(--font-body);
@@ -528,7 +528,7 @@ export default function App() {
           flex: 1;
           min-width: 120px;
           background: #1a1a18;
-          border: 1px solid rgba(255,255,255,0.12);
+          border: 1px solid rgba(255,255,255,0.4);
           border-radius: 8px;
           padding: 9px 12px;
           font-family: var(--font-body);
