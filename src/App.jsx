@@ -582,37 +582,8 @@ export default function App() {
         /* ── FOOTER ── */
         .page-footer {
           background: #111110;
-          padding: 2rem var(--px) 1.5rem;
+          padding: 1.25rem var(--px);
         }
-        .footer-inner {
-          max-width: var(--inner-max);
-          margin: 0 auto;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 2rem;
-          flex-wrap: wrap;
-          margin-bottom: 1.5rem;
-        }
-        .footer-brand { display: flex; flex-direction: column; gap: 8px; }
-        .footer-logo  { display: flex; align-items: center; gap: 8px; }
-        .footer-logo-text {
-          font-family: var(--font-body);
-          font-size: 11px;
-          font-weight: 500;
-          letter-spacing: 0.12em;
-          text-transform: uppercase;
-          color: rgba(255,255,255,0.5);
-        }
-        .footer-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
-        .footer-links a {
-          font-family: var(--font-body);
-          font-size: 11px;
-          color: rgba(255,255,255,0.3);
-          text-decoration: none;
-          letter-spacing: 0.04em;
-        }
-        .footer-links a:hover { color: var(--accent2); }
         .footer-copy {
           font-family: var(--font-body);
           font-size: 11px;
@@ -623,7 +594,7 @@ export default function App() {
           line-height: 1.8;
         }
         .footer-copy a {
-          color: rgba(255,255,255,0.3);
+          color: rgba(255,255,255,0.25);
           text-decoration: none;
         }
         .footer-copy a:hover { color: var(--accent2); }
@@ -633,10 +604,6 @@ export default function App() {
           font-size: 7px;
           vertical-align: middle;
         }
-        @media (max-width: 560px) {
-          .footer-inner { flex-direction: column; align-items: flex-start; }
-          .footer-links { flex-direction: column; gap: 8px; }
-        }
       `}</style>
 
       {/* ── HIDDEN SEO H1 ── */}
@@ -645,18 +612,16 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      <div style={{ maxWidth: 860, margin: "0 auto", overflow: "hidden" }}>
-        <HeroBanner
-          icon={<DotIcon size={52} />}
-          titleStrong="Data"
-          titleEm="on Tap"
-          leadText="Are you unreasonably excited about data?"
-          bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
-          heroImage="/monica-poling-dot-hero.png"
-          heroImageAlt="Monica Poling, founder of Data on Tap"
-          dimBarText="Let's build AI tools in an afternoon."
-        />
-      </div>
+      <HeroBanner
+        icon={<DotIcon size={52} />}
+        titleStrong="Data"
+        titleEm="on Tap"
+        leadText="Are you unreasonably excited about data?"
+        bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
+        heroImage="/monica-poling-dot-hero.png"
+        heroImageAlt="Monica Poling, founder of Data on Tap"
+        dimBarText="Let's build AI tools in an afternoon."
+      />
 
       {/* ── MAIN CONTENT ── */}
       <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
