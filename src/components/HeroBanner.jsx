@@ -35,14 +35,16 @@ export const BANNER_CSS = `
     align-items: stretch;
     min-height: 220px;
     max-height: 280px;
+    overflow: hidden;
   }
   .kot-hero-left {
-    flex: 3;
+    flex: 1 1 auto;
     padding: 2rem clamp(16px,4vw,2rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 14px;
+    min-width: 0;
   }
   .kot-hero-logo {
     display: flex;
@@ -64,7 +66,7 @@ export const BANNER_CSS = `
     font-weight: 300;
     line-height: 1.7;
     color: rgba(255,255,255,0.6);
-    max-width: 580px;
+    max-width: 520px;
   }
   .kot-hero-sub .lead {
     font-weight: 500;
@@ -73,9 +75,9 @@ export const BANNER_CSS = `
     margin-bottom: 0.4rem;
   }
   .kot-hero-right {
-    flex: 0 0 230px;
-    min-width: 200px;
-    max-width: 230px;
+    flex: 0 0 240px;
+    width: 240px;
+    max-width: 240px;
     overflow: hidden;
     background: #111110;
   }
