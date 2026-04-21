@@ -252,6 +252,7 @@ export default function App() {
           max-width: 860px;
           margin: 0 auto;
           width: 100%;
+          padding: 0 clamp(16px,4vw,2rem);
         }
 
         /* ── SECTION ── */
@@ -623,7 +624,7 @@ export default function App() {
       />
 
       {/* ── MAIN CONTENT ── */}
-      <main style={{ background: "var(--bg)", paddingBottom: "1rem", padding: "0 clamp(16px,4vw,2rem) 1rem" }}>
+      <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
         <div className="kot-inner">
 
           {/* TYPE FILTER */}
