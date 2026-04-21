@@ -774,18 +774,6 @@ export default function App() {
       {/* ── FOOTER ── */}
       <div className="page-footer-rule" />
       <footer className="page-footer">
-        <div className="footer-inner">
-          <div className="footer-brand">
-            <div className="footer-logo">
-              <span className="footer-logo-text">Data on Tap</span>
-            </div>
-          </div>
-          <div className="footer-links">
-            <a href="https://monicapoling.com">monicapoling.com</a>
-            <a href="https://monicapoling.com/speaking">Speaking & Workshops</a>
-            <a href="https://linkedin.com/in/monicapoling" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-          </div>
-        </div>
         <p className="footer-copy">
           © 2026 Data on Tap
           <span className="footer-sep">◆</span>
