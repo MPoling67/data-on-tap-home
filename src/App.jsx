@@ -541,6 +541,14 @@ export default function App() {
         }
         .nl-field:focus { border-color: #861442; }
         .nl-field::placeholder { color: #5a5a56; }
+        .nl-field:-webkit-autofill,
+        .nl-field:-webkit-autofill:hover,
+        .nl-field:-webkit-autofill:focus {
+          -webkit-box-shadow: 0 0 0 1000px #1a1a18 inset !important;
+          -webkit-text-fill-color: #f0ede8 !important;
+          caret-color: #f0ede8;
+          border-color: #861442;
+        }
         .nl-btn {
           background: #861442;
           color: #fff;
@@ -615,10 +623,23 @@ export default function App() {
         .footer-links a:hover { color: var(--accent2); }
         .footer-copy {
           font-family: var(--font-body);
-          font-size: 10px;
-          color: rgba(255,255,255,0.15);
+          font-size: 11px;
+          font-weight: 400;
+          color: rgba(255,255,255,0.4);
           max-width: var(--inner-max);
           margin: 0 auto;
+          line-height: 1.8;
+        }
+        .footer-copy a {
+          color: var(--accent2);
+          text-decoration: none;
+        }
+        .footer-copy a:hover { color: #f0ede8; }
+        .footer-sep {
+          color: var(--accent2);
+          margin: 0 6px;
+          font-size: 8px;
+          vertical-align: middle;
         }
         @media (max-width: 560px) {
           .footer-inner { flex-direction: column; }
@@ -778,7 +799,11 @@ export default function App() {
           </div>
         </div>
         <p className="footer-copy">
-          © 2026 Monica Poling · Data on Tap · Built with Claude API, Google Sheets & Vercel
+          © 2026 Monica Poling
+          <span className="footer-sep">◆</span>
+          Data on Tap
+          <span className="footer-sep">◆</span>
+          <a href="https://monicapoling.com" target="_blank" rel="noopener noreferrer">monicapoling.com</a>
         </p>
       </footer>
 
