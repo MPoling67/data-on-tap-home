@@ -481,24 +481,19 @@ export default function App() {
           font-family: var(--font-body);
         }
 
-        /* ── NEWSLETTER ── */
+        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+         * NEWSLETTER — styles live here, JSX below in render
+         * Pull this block + JSX into SubscribeBar.jsx when ready
+         * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .nl-zone {
-          background: #1a1a18;
-          padding: 2rem var(--px);
+          background: #111110;
+          padding: 2.5rem var(--px);
+          border-top: 1.5px solid rgba(134,20,66,0.5);
         }
         .nl-card {
-          max-width: var(--inner-max);
+          max-width: 640px;
           margin: 0 auto;
-          background: var(--surface);
-          border: 1px solid var(--border);
-          border-radius: var(--radius);
-          padding: 1.5rem 1.75rem;
-          display: flex;
-          gap: 1.5rem;
-          align-items: flex-start;
-          flex-wrap: wrap;
         }
-        .nl-copy { flex: 1; min-width: 200px; }
         .nl-eyebrow {
           font-family: var(--font-body);
           font-size: 10px;
@@ -506,24 +501,33 @@ export default function App() {
           text-transform: uppercase;
           letter-spacing: 0.14em;
           color: var(--accent2);
+          margin-bottom: 8px;
+        }
+        .nl-heading {
+          font-family: var(--font-display);
+          font-size: 22px;
+          font-weight: 300;
+          color: #f0ede8;
+          line-height: 1.2;
           margin-bottom: 6px;
         }
         .nl-body {
           font-family: var(--font-body);
-          font-size: 12px;
+          font-size: 13px;
           font-weight: 300;
           color: var(--muted);
           line-height: 1.65;
+          margin-bottom: 1.25rem;
         }
         .nl-form {
           display: flex;
-          flex-direction: column;
           gap: 8px;
-          min-width: 220px;
-          flex: 0 0 260px;
+          flex-wrap: wrap;
         }
         .nl-field {
-          background: #111110;
+          flex: 1;
+          min-width: 120px;
+          background: #1a1a18;
           border: 1px solid rgba(255,255,255,0.12);
           border-radius: 8px;
           padding: 9px 12px;
@@ -537,26 +541,13 @@ export default function App() {
         }
         .nl-field:focus { border-color: #861442; }
         .nl-field::placeholder { color: #5a5a56; }
-        .btn-primary {
-          background: #861442;
-          color: #fff;
-          border: none;
-          border-radius: var(--radius);
-          padding: 10px 22px;
-          font-family: var(--font-body);
-          font-size: 13px;
-          font-weight: 500;
-          cursor: pointer;
-          letter-spacing: 0.04em;
-          transition: opacity 0.15s;
-        }
-        .btn-primary:hover { opacity: 0.88; }
         .nl-thanks {
           font-family: var(--font-body);
           font-size: 13px;
           color: #4caf8a;
-          align-self: center;
+          margin-top: 10px;
         }
+        /* ── NEWSLETTER END ── */
 
         /* ── FOOTER RULE ── */
         .page-footer-rule {
@@ -719,16 +710,12 @@ export default function App() {
         </div>
       </main>
 
-      {/* ── NEWSLETTER ── */}
+      {/* ── NEWSLETTER — JSX paired with NEWSLETTER CSS block above ── */}
       <div className="nl-zone">
         <div className="nl-card">
-          <div className="nl-copy">
-            <div className="nl-eyebrow">Subscribe Now</div>
-            <p className="nl-body">
-              Turn what you know into what you're known for. Weekly ideas on using AI to
-              organize, share, and monetize your expertise.
-            </p>
-          </div>
+          <div className="nl-eyebrow">Subscribe Now</div>
+          <div className="nl-heading">Turn what you know into what you're known for.</div>
+          <p className="nl-body">Weekly tips on using AI to organize, share, and monetize your expertise.</p>
           {nlSubmitted ? (
             <div className="nl-thanks">✓ You're in! Watch for Let's Make Some Noise.</div>
           ) : (
@@ -749,7 +736,7 @@ export default function App() {
                 onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               />
               <button className="btn-primary" onClick={handleSubscribe}>
-                Subscribe Now
+                Subscribe Now →
               </button>
             </div>
           )}
