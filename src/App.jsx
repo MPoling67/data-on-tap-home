@@ -541,6 +541,21 @@ export default function App() {
         }
         .nl-field:focus { border-color: #861442; }
         .nl-field::placeholder { color: #5a5a56; }
+        .nl-btn {
+          background: #861442;
+          color: #fff;
+          border: none;
+          border-radius: var(--radius);
+          padding: 10px 22px;
+          font-family: var(--font-body);
+          font-size: 13px;
+          font-weight: 500;
+          cursor: pointer;
+          letter-spacing: 0.04em;
+          transition: opacity 0.15s;
+          white-space: nowrap;
+        }
+        .nl-btn:hover { opacity: 0.88; }
         .nl-thanks {
           font-family: var(--font-body);
           font-size: 13px;
@@ -735,7 +750,7 @@ export default function App() {
                 onChange={(e) => setNlEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
               />
-              <button className="btn-primary" onClick={handleSubscribe}>
+              <button className="nl-btn" onClick={handleSubscribe}>
                 Subscribe Now →
               </button>
             </div>
