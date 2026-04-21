@@ -246,23 +246,19 @@ export default function App() {
         .kot-hero {
           width: 100%;
           background: #111110;
-          min-height: 220px;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-        }
-        .kot-hero .kot-inner {
           display: flex;
           align-items: stretch;
           min-height: 220px;
-          padding-top: 0;
-          padding-bottom: 0;
+          max-height: 280px;
+          border-bottom: 1px solid rgba(255,255,255,0.06);
         }
         .kot-hero-left {
           flex: 3;
-          padding: 2.25rem 0 2rem;
+          padding: 2rem clamp(16px,4vw,2rem);
           display: flex;
           flex-direction: column;
           justify-content: center;
-          gap: 16px;
+          gap: 14px;
         }
         .kot-hero-logo {
           display: flex;
@@ -280,11 +276,11 @@ export default function App() {
         .kot-hero-title em    { font-weight: 300; font-style: italic; color: #be3650; }
         .kot-hero-sub {
           font-family: var(--font-body);
-          font-size: 14px;
+          font-size: 15px;
           font-weight: 300;
-          line-height: 1.7;
-          color: rgba(255,255,255,0.55);
-          max-width: 520px;
+          line-height: 1.75;
+          color: rgba(255,255,255,0.6);
+          max-width: 600px;
         }
         .kot-hero-sub .lead {
           font-weight: 500;
@@ -293,9 +289,9 @@ export default function App() {
           margin-bottom: 0.4rem;
         }
         .kot-hero-right {
-          flex: 0 0 230px;
-          min-width: 200px;
-          max-width: 230px;
+          flex: 0 0 280px;
+          min-width: 220px;
+          max-width: 320px;
           position: relative;
           overflow: hidden;
           background: #111110;
@@ -304,7 +300,7 @@ export default function App() {
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: center 15%;
+          object-position: center top;
           display: block;
         }
         @media (max-width: 500px) { .kot-hero-right { display: none; } }
@@ -708,25 +704,23 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      {/* ── HERO (full-bleed bg, inner constrained to 860px) ── */}
+      {/* ── HERO (full-bleed, no inner constraint — matches Power Score) ── */}
       <section className="kot-hero">
-        <div className="kot-inner">
-          <div className="kot-hero-left">
-            <div className="kot-hero-logo">
-              <DotIcon size={52} />
-              <div className="kot-hero-title">
-                <strong>Data</strong> <em>on Tap</em>
-              </div>
-            </div>
-            <div className="kot-hero-sub">
-              <span className="lead">Are you unreasonably excited about data?</span>
-              A free library of AI-powered mini Business Intelligence Tools for people who want
-              to use data to tell smarter stories — and AI to close the gap between idea and execution.
+        <div className="kot-hero-left">
+          <div className="kot-hero-logo">
+            <DotIcon size={52} />
+            <div className="kot-hero-title">
+              <strong>Data</strong> <em>on Tap</em>
             </div>
           </div>
-          <div className="kot-hero-right">
-            <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
+          <div className="kot-hero-sub">
+            <span className="lead">Are you unreasonably excited about data?</span>
+            A free library of AI-powered mini Business Intelligence Tools for people who want
+            to use data to tell smarter stories — and AI to close the gap between idea and execution.
           </div>
+        </div>
+        <div className="kot-hero-right">
+          <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
         </div>
       </section>
 
