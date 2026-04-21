@@ -33,17 +33,23 @@ export const BANNER_CSS = `
     background: #111110;
     display: flex;
     align-items: stretch;
-    min-height: 220px;
-    max-height: 280px;
-    overflow: hidden;
+    height: 260px;
+  }
+  .kot-hero-inner {
+    flex: 1 1 auto;
+    max-width: 860px;
+    margin: 0 auto 0 0;
+    display: flex;
+    align-items: stretch;
+    padding: 0 clamp(16px,4vw,2rem);
+    min-width: 0;
   }
   .kot-hero-left {
-    flex: 1 1 auto;
-    padding: 2rem clamp(16px,4vw,2rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
     gap: 14px;
+    padding: 2rem 0;
     min-width: 0;
   }
   .kot-hero-logo {
@@ -77,11 +83,13 @@ export const BANNER_CSS = `
   .kot-hero-right {
     flex: 0 0 240px;
     width: 240px;
-    max-width: 240px;
+    position: relative;
     overflow: hidden;
     background: #111110;
   }
   .kot-hero-right img {
+    position: absolute;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -132,17 +140,19 @@ export default function HeroBanner({
       <style>{BANNER_CSS}</style>
 
       <section className="kot-hero">
-        <div className="kot-hero-left">
-          <div className="kot-hero-logo">
-            {icon && <div style={{ flexShrink: 0, lineHeight: 0 }}>{icon}</div>}
-            <div className="kot-hero-title">
-              <strong>{titleStrong}</strong>{" "}
-              <em>{titleEm}</em>
+        <div className="kot-hero-inner">
+          <div className="kot-hero-left">
+            <div className="kot-hero-logo">
+              {icon && <div style={{ flexShrink: 0, lineHeight: 0 }}>{icon}</div>}
+              <div className="kot-hero-title">
+                <strong>{titleStrong}</strong>{" "}
+                <em>{titleEm}</em>
+              </div>
             </div>
-          </div>
-          <div className="kot-hero-sub">
-            {leadText && <span className="lead">{leadText}</span>}
-            {bodyText}
+            <div className="kot-hero-sub">
+              {leadText && <span className="lead">{leadText}</span>}
+              {bodyText}
+            </div>
           </div>
         </div>
 
