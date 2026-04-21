@@ -249,10 +249,10 @@ export default function App() {
 
         /* ── MAIN INNER ── */
         .kot-inner {
-          max-width: var(--inner-max);
+          max-width: 860px;
           margin: 0 auto;
           width: 100%;
-          padding: 0 var(--px);
+          padding: 0 clamp(16px,4vw,2rem);
         }
 
         /* ── SECTION ── */
