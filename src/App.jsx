@@ -1,4 +1,5 @@
 import { useState } from "react";
+import HeroBanner from "./components/HeroBanner.jsx";
 
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
@@ -242,20 +243,21 @@ export default function App() {
         }
         .kot-anim { animation: fadeUp 0.5s ease both; }
 
-        /* ── HERO ── */
+        /* ── BANNER (mirror of HeroBanner.jsx → BANNER_CSS) ───────────────────
+           DO NOT edit here independently. Edit BANNER_CSS in HeroBanner.jsx,
+           then paste the updated block here to keep them in sync.
+           ─────────────────────────────────────────────────────────────────── */
         .kot-hero {
           width: 100%;
           background: #111110;
           display: flex;
           align-items: stretch;
           min-height: 220px;
-          max-height: 320px;
-          overflow: hidden;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
+          max-height: 280px;
         }
         .kot-hero-left {
           flex: 3;
-          padding: 2rem clamp(16px,4vw,3rem) 2rem clamp(16px,4vw,2rem);
+          padding: 2rem clamp(16px,4vw,2rem);
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -267,21 +269,21 @@ export default function App() {
           gap: 14px;
         }
         .kot-hero-title {
-          font-family: var(--font-display);
-          font-size: clamp(36px, 6vw, 52px);
+          font-family: 'Fraunces', Georgia, serif;
+          font-size: clamp(36px,6vw,52px);
           color: #f0ede8;
           line-height: 1;
           letter-spacing: -0.02em;
         }
-        .kot-hero-title strong { font-weight: 700; color: #f0ede8; }
+        .kot-hero-title strong { font-weight: 700; font-style: normal; color: #f0ede8; }
         .kot-hero-title em    { font-weight: 300; font-style: italic; color: #be3650; }
         .kot-hero-sub {
-          font-family: var(--font-body);
-          font-size: 15px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: 14px;
           font-weight: 300;
-          line-height: 1.75;
+          line-height: 1.7;
           color: rgba(255,255,255,0.6);
-          max-width: 600px;
+          max-width: 580px;
         }
         .kot-hero-sub .lead {
           font-weight: 500;
@@ -290,10 +292,9 @@ export default function App() {
           margin-bottom: 0.4rem;
         }
         .kot-hero-right {
-          flex: 0 0 280px;
-          min-width: 220px;
-          max-width: 320px;
-          position: relative;
+          flex: 0 0 230px;
+          min-width: 200px;
+          max-width: 230px;
           overflow: hidden;
           background: #111110;
         }
@@ -305,8 +306,6 @@ export default function App() {
           display: block;
         }
         @media (max-width: 500px) { .kot-hero-right { display: none; } }
-
-        /* ── DIM BAR ── */
         .kot-dim-bar {
           background: #111110;
           display: flex;
@@ -317,14 +316,21 @@ export default function App() {
         .kot-dim-col {
           flex: 1;
           text-align: center;
-          padding: 8px var(--px);
-          font-family: var(--font-body);
+          padding: 8px 4px;
+          font-family: 'Plus Jakarta Sans', sans-serif;
           font-size: 10px;
           font-weight: 500;
           letter-spacing: 0.12em;
           text-transform: uppercase;
           color: #f0ede8;
         }
+        .kot-dim-pipe {
+          width: 1px;
+          height: 18px;
+          background: rgba(255,255,255,0.12);
+          flex-shrink: 0;
+        }
+        /* ── BANNER END ── */
 
         /* ── MAIN INNER ── */
         .kot-inner {
@@ -705,30 +711,16 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      {/* ── HERO (full-bleed, no inner constraint — matches Power Score) ── */}
-      <section className="kot-hero">
-        <div className="kot-hero-left">
-          <div className="kot-hero-logo">
-            <DotIcon size={52} />
-            <div className="kot-hero-title">
-              <strong>Data</strong> <em>on Tap</em>
-            </div>
-          </div>
-          <div className="kot-hero-sub">
-            <span className="lead">Are you unreasonably excited about data?</span>
-            A free library of AI-powered mini Business Intelligence Tools for people who want
-            to use data to tell smarter stories — and AI to close the gap between idea and execution.
-          </div>
-        </div>
-        <div className="kot-hero-right">
-          <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
-        </div>
-      </section>
-
-      {/* ── DIM BAR ── */}
-      <div className="kot-dim-bar">
-        <div className="kot-dim-col">Let's build AI tools in an afternoon.</div>
-      </div>
+      <HeroBanner
+        icon={<DotIcon size={52} />}
+        titleStrong="Data"
+        titleEm="on Tap"
+        leadText="Are you unreasonably excited about data?"
+        bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
+        heroImage="/monica-poling-dot-hero.png"
+        heroImageAlt="Monica Poling, founder of Data on Tap"
+        dimBarText="Let's build AI tools in an afternoon."
+      />
 
       {/* ── MAIN CONTENT ── */}
       <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
