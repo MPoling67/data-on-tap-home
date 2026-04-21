@@ -252,7 +252,6 @@ export default function App() {
           max-width: 860px;
           margin: 0 auto;
           width: 100%;
-          padding: 0 clamp(16px,4vw,2rem);
         }
 
         /* ── SECTION ── */
@@ -612,21 +611,19 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      <div style={{ maxWidth: 860, margin: "0 auto", overflow: "hidden" }}>
-        <HeroBanner
-          icon={<DotIcon size={52} />}
-          titleStrong="Data"
-          titleEm="on Tap"
-          leadText="Are you unreasonably excited about data?"
-          bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
-          heroImage="/monica-poling-dot-hero.png"
-          heroImageAlt="Monica Poling, founder of Data on Tap"
-          dimBarText="Let's build AI tools in an afternoon."
-        />
-      </div>
+      <HeroBanner
+        icon={<DotIcon size={52} />}
+        titleStrong="Data"
+        titleEm="on Tap"
+        leadText="Are you unreasonably excited about data?"
+        bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
+        heroImage="/monica-poling-dot-hero.png"
+        heroImageAlt="Monica Poling, founder of Data on Tap"
+        dimBarText="Let's build AI tools in an afternoon."
+      />
 
       {/* ── MAIN CONTENT ── */}
-      <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
+      <main style={{ background: "var(--bg)", paddingBottom: "1rem", padding: "0 clamp(16px,4vw,2rem) 1rem" }}>
         <div className="kot-inner">
 
           {/* TYPE FILTER */}
