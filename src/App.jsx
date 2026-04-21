@@ -213,30 +213,6 @@ export default function App() {
     <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8" }}>
 
       <style>{`
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        :root {
-          --bg: #1a1a18;
-          --surface: #242422;
-          --surface2: #2e2e2b;
-          --border: rgba(255,255,255,0.08);
-          --border2: rgba(255,255,255,0.14);
-          --text: #f0ede8;
-          --muted: #c8c4bc;
-          --dim: #5a5a56;
-          --accent: #861442;
-          --accent2: #be3650;
-          --font-display: 'Fraunces', Georgia, serif;
-          --font-body: 'Plus Jakarta Sans', sans-serif;
-          --radius: 10px;
-          --inner-max: 860px;
-          --px: clamp(16px, 4vw, 2rem);
-        }
-        body {
-          font-family: var(--font-body);
-          font-weight: 300;
-          background: var(--bg);
-          color: var(--text);
-        }
         @keyframes fadeUp {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
@@ -252,7 +228,6 @@ export default function App() {
           max-width: 860px;
           margin: 0 auto;
           width: 100%;
-          padding: 0 clamp(16px,4vw,2rem);
         }
 
         /* ── SECTION ── */
