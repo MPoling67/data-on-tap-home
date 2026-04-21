@@ -242,56 +242,23 @@ export default function App() {
         }
         .kot-anim { animation: fadeUp 0.5s ease both; }
 
-        /* ── TOP BAR ── */
-        .kot-bar {
-          background: #111110;
-          padding: 7px var(--px);
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          border-bottom: 1px solid rgba(255,255,255,0.06);
-          position: sticky;
-          top: 0;
-          z-index: 100;
-        }
-        .kot-logo {
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          text-decoration: none;
-        }
-        .kot-logo-title {
-          font-family: var(--font-display);
-          font-size: 18px;
-          font-weight: 300;
-          line-height: 1;
-          color: #fff;
-        }
-        .kot-logo-title strong { font-weight: 700; font-style: normal; }
-        .kot-logo-title em    { font-weight: 300; font-style: italic; color: var(--accent2); }
-        .kot-nav { display: flex; gap: 20px; align-items: center; }
-        .kot-nav a {
-          font-family: var(--font-body);
-          font-size: 11px;
-          font-weight: 400;
-          color: rgba(255,255,255,0.35);
-          text-decoration: none;
-          letter-spacing: 0.05em;
-        }
-        .kot-nav a:hover { color: var(--accent2); }
-
         /* ── HERO ── */
         .kot-hero {
           width: 100%;
           background: #111110;
-          display: flex;
-          align-items: stretch;
           min-height: 220px;
           border-bottom: 1px solid rgba(255,255,255,0.06);
         }
+        .kot-hero .kot-inner {
+          display: flex;
+          align-items: stretch;
+          min-height: 220px;
+          padding-top: 0;
+          padding-bottom: 0;
+        }
         .kot-hero-left {
           flex: 3;
-          padding: 2.25rem var(--px) 2rem;
+          padding: 2.25rem 0 2rem;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -741,38 +708,25 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      {/* ── TOP BAR ── */}
-      <nav className="kot-bar">
-        <a className="kot-logo" href="/">
-          <KotLogo size={22} />
-          <div className="kot-logo-title">
-            <strong>Knowledge</strong> <em>on Tap</em>
-          </div>
-        </a>
-        <div className="kot-nav">
-          <a href="https://monicapoling.com" target="_blank" rel="noopener noreferrer">monicapoling.com</a>
-          <a href="https://monicapoling.com/speaking" target="_blank" rel="noopener noreferrer">Speaking</a>
-          <a href="https://linkedin.com/in/monicapoling" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </div>
-      </nav>
-
-      {/* ── HERO (full-bleed) ── */}
+      {/* ── HERO (full-bleed bg, inner constrained to 860px) ── */}
       <section className="kot-hero">
-        <div className="kot-hero-left">
-          <div className="kot-hero-logo">
-            <DotIcon size={52} />
-            <div className="kot-hero-title">
-              <strong>Data</strong> <em>on Tap</em>
+        <div className="kot-inner">
+          <div className="kot-hero-left">
+            <div className="kot-hero-logo">
+              <DotIcon size={52} />
+              <div className="kot-hero-title">
+                <strong>Data</strong> <em>on Tap</em>
+              </div>
+            </div>
+            <div className="kot-hero-sub">
+              <span className="lead">Are you unreasonably excited about data?</span>
+              A free library of AI-powered mini Business Intelligence Tools for people who want
+              to use data to tell smarter stories — and AI to close the gap between idea and execution.
             </div>
           </div>
-          <div className="kot-hero-sub">
-            <span className="lead">Are you unreasonably excited about data?</span>
-            A free library of AI-powered mini Business Intelligence Tools for people who want
-            to use data to tell smarter stories — and AI to close the gap between idea and execution.
+          <div className="kot-hero-right">
+            <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
           </div>
-        </div>
-        <div className="kot-hero-right">
-          <img src="/public/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
         </div>
       </section>
 
