@@ -582,37 +582,29 @@ export default function App() {
         /* ── FOOTER ── */
         .page-footer {
           background: #111110;
-          padding: 2.5rem var(--px) 2rem;
+          padding: 2rem var(--px) 1.5rem;
         }
         .footer-inner {
           max-width: var(--inner-max);
           margin: 0 auto;
           display: flex;
-          align-items: flex-start;
+          align-items: center;
           justify-content: space-between;
           gap: 2rem;
           flex-wrap: wrap;
-          margin-bottom: 2rem;
+          margin-bottom: 1.5rem;
         }
         .footer-brand { display: flex; flex-direction: column; gap: 8px; }
         .footer-logo  { display: flex; align-items: center; gap: 8px; }
         .footer-logo-text {
           font-family: var(--font-body);
           font-size: 11px;
-          font-weight: 400;
-          letter-spacing: 0.1em;
+          font-weight: 500;
+          letter-spacing: 0.12em;
           text-transform: uppercase;
-          color: rgba(255,255,255,0.35);
+          color: rgba(255,255,255,0.5);
         }
-        .footer-tagline {
-          font-family: var(--font-body);
-          font-size: 11px;
-          font-weight: 300;
-          color: rgba(255,255,255,0.25);
-          max-width: 260px;
-          line-height: 1.6;
-        }
-        .footer-links { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+        .footer-links { display: flex; gap: 20px; align-items: center; flex-wrap: wrap; }
         .footer-links a {
           font-family: var(--font-body);
           font-size: 11px;
@@ -624,26 +616,26 @@ export default function App() {
         .footer-copy {
           font-family: var(--font-body);
           font-size: 11px;
-          font-weight: 400;
-          color: rgba(255,255,255,0.4);
+          font-weight: 300;
+          color: rgba(255,255,255,0.25);
           max-width: var(--inner-max);
           margin: 0 auto;
           line-height: 1.8;
         }
         .footer-copy a {
-          color: var(--accent2);
+          color: rgba(255,255,255,0.3);
           text-decoration: none;
         }
-        .footer-copy a:hover { color: #f0ede8; }
+        .footer-copy a:hover { color: var(--accent2); }
         .footer-sep {
           color: var(--accent2);
           margin: 0 6px;
-          font-size: 8px;
+          font-size: 7px;
           vertical-align: middle;
         }
         @media (max-width: 560px) {
-          .footer-inner { flex-direction: column; }
-          .footer-links { align-items: flex-start; }
+          .footer-inner { flex-direction: column; align-items: flex-start; }
+          .footer-links { flex-direction: column; gap: 8px; }
         }
       `}</style>
 
@@ -785,12 +777,8 @@ export default function App() {
         <div className="footer-inner">
           <div className="footer-brand">
             <div className="footer-logo">
-              <KotLogo size={18} />
               <span className="footer-logo-text">Data on Tap</span>
             </div>
-            <p className="footer-tagline">
-              A working library of AI-powered business tools. Built to show what's possible.
-            </p>
           </div>
           <div className="footer-links">
             <a href="https://monicapoling.com">monicapoling.com</a>
@@ -799,9 +787,9 @@ export default function App() {
           </div>
         </div>
         <p className="footer-copy">
-          © 2026 Monica Poling
+          © 2026 Data on Tap
           <span className="footer-sep">◆</span>
-          Data on Tap
+          Monica Poling
           <span className="footer-sep">◆</span>
           <a href="https://monicapoling.com" target="_blank" rel="noopener noreferrer">monicapoling.com</a>
         </p>
