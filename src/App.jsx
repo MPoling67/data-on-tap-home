@@ -1,5 +1,4 @@
 import { useState } from "react";
-import HeroBanner from "./components/HeroBanner.jsx";
 
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
@@ -96,13 +95,16 @@ const TOOLS = [
 TOOLS.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const TYPE_FILTERS = [
-  { key: "all",       label: "All Tools",      desc: "Every tool in the library" },
-  { key: "data",      label: "Data & Econ Dev", desc: "Economic & data intelligence" },
-  { key: "quiz",      label: "Quiz & Trivia",   desc: "Test your knowledge" },
-  { key: "generator", label: "Directories",     desc: "Search & explore" },
+  { key: "all",       label: "All Tools",       desc: "Every tool in the library" },
+  { key: "pov",       label: "POV",             desc: "Positioning & intelligence" },
+  { key: "data",      label: "Data & Econ Dev",  desc: "Economic & data intelligence" },
+  { key: "quiz",      label: "Quiz & Trivia",    desc: "Test your knowledge" },
+  { key: "generator", label: "Directories",      desc: "Search & explore" },
 ];
 
-// ── DOT ICON SVG (bubble-gradient style from current home page) ───────────────
+const NL_LOGGER = "https://script.google.com/macros/s/AKfycbxtCPP6q6wqCUYlSEtNdyQxFF_22K94lvgP4MJytXYX-kWqpCYkZnXG7tYV5fSZThYj/exec";
+
+// ── DOT ICON SVG ──────────────────────────────────────────────────────────────
 function DotIcon({ size = 52 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
@@ -138,8 +140,8 @@ function DotIcon({ size = 52 }) {
   );
 }
 
-// ── KOT LOGO (C-variant) ──────────────────────────────────────────────────────
-function KotLogo({ size = 18 }) {
+// ── DOT LOGO (C-variant) ──────────────────────────────────────────────────────
+function DotLogo({ size = 18 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 54 54" fill="none">
       <rect x="0"  y="0"  width="24" height="24" fill="#861442"/>
@@ -158,7 +160,7 @@ function ToolCard({ tool }) {
       href={tool.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="tool-card kot-anim"
+      className="tool-card dot-anim"
     >
       {tool.img ? (
         <img
@@ -204,13 +206,27 @@ export default function App() {
     ? TOOLS
     : TOOLS.filter((t) => t.type === activeType);
 
-  const handleSubscribe = () => {
+  const handleSubscribe = async () => {
     if (!nlEmail.trim()) return;
     setNlSubmitted(true);
+    try {
+      await fetch(NL_LOGGER, {
+        method: "POST",
+        mode: "no-cors",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          firstName: nlFirstName.trim(),
+          email: nlEmail.trim(),
+          source: "dataontap.dev",
+        }),
+      });
+    } catch (_) {
+      // silent — submission already shown as success
+    }
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8", maxWidth: "860px", margin: "0 auto" }}>
+    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8" }}>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -229,17 +245,31 @@ export default function App() {
           from { opacity: 0; transform: translateY(12px); }
           to   { opacity: 1; transform: translateY(0); }
         }
-        .kot-anim { animation: fadeUp 0.5s ease both; }
+        .dot-anim { animation: fadeUp 0.5s ease both; }
 
-        /* ── BANNER — rendered by HeroBanner.jsx, CSS lives there ── */
+        /* ── HERO ── */
+        .dot-hero { width: 100%; background: #111110; display: flex; align-items: stretch; min-height: 220px; max-height: 280px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .dot-hero-left { flex: 3; padding: 2rem var(--px); display: flex; flex-direction: column; justify-content: center; gap: 14px; }
+        .dot-hero-logo { display: flex; align-items: center; gap: 14px; }
+        .dot-hero-title { font-family: var(--font-display); font-size: clamp(36px,6vw,52px); color: #f0ede8; line-height: 1; letter-spacing: -0.02em; }
+        .dot-hero-title strong { font-weight: 700; font-style: normal; color: #f0ede8; }
+        .dot-hero-title em { font-weight: 300; font-style: italic; color: #be3650; }
+        .dot-hero-sub { font-family: var(--font-body); font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 520px; }
+        .dot-hero-sub .lead { font-weight: 500; color: #f0ede8; display: block; margin-bottom: 0.4rem; }
+        .dot-hero-right { flex: 0 0 230px; min-width: 200px; max-width: 230px; position: relative; overflow: hidden; background: #111110; }
+        .dot-hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+        @media (max-width: 500px) { .dot-hero-right { display: none; } }
 
-        /* ── BANNER END ── */
+        /* ── DIM BAR ── */
+        .dot-dim-bar { background: #111110; display: flex; align-items: center; border-top: 1.5px solid rgba(134,20,66,0.5); border-bottom: 1.5px solid rgba(134,20,66,0.5); }
+        .dot-dim-col { flex: 1; text-align: center; padding: 8px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; }
 
         /* ── MAIN INNER ── */
-        .kot-inner {
+        .dot-inner {
           max-width: 860px;
           margin: 0 auto;
           width: 100%;
+          padding: 0 var(--px);
         }
 
         /* ── SECTION ── */
@@ -272,11 +302,11 @@ export default function App() {
         /* ── TYPE FILTER ── */
         .type-grid {
           display: grid;
-          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-template-columns: repeat(5, minmax(0, 1fr));
           gap: 8px;
           margin-bottom: 0.5rem;
         }
-        @media (max-width: 600px) { .type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 640px) { .type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .type-card {
           background: var(--surface);
           border: 1px solid var(--border);
@@ -469,8 +499,7 @@ export default function App() {
         }
 
         /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         * NEWSLETTER — styles live here, JSX below in render
-         * Pull this block + JSX into SubscribeBar.jsx when ready
+         * NEWSLETTER — pull into SubscribeBar.jsx when ready
          * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
         .nl-zone {
           background: #111110;
@@ -551,13 +580,19 @@ export default function App() {
           white-space: nowrap;
         }
         .nl-btn:hover { opacity: 0.88; }
+        .nl-disclaimer {
+          font-family: var(--font-body);
+          font-size: 11px;
+          color: var(--dim);
+          margin-top: 10px;
+          line-height: 1.5;
+        }
         .nl-thanks {
           font-family: var(--font-body);
           font-size: 13px;
           color: #4caf8a;
           margin-top: 10px;
         }
-        /* ── NEWSLETTER END ── */
 
         /* ── FOOTER RULE ── */
         .page-footer-rule {
@@ -599,20 +634,38 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      <HeroBanner
-        icon={<DotIcon size={52} />}
-        titleStrong="Data"
-        titleEm="on Tap"
-        leadText="Are you unreasonably excited about data?"
-        bodyText="A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution."
-        heroImage="/monica-poling-dot-hero.png"
-        heroImageAlt="Monica Poling, founder of Data on Tap"
-        dimBarText="Let's build AI tools in an afternoon."
-      />
+      {/* ── HERO ── */}
+      <section className="dot-hero">
+        <div className="dot-hero-left">
+          <div className="dot-hero-logo">
+            <div style={{ flexShrink: 0, lineHeight: 0 }}>
+              <DotIcon size={52} />
+            </div>
+            <div className="dot-hero-title">
+              <strong>Data</strong>{" "}
+              <em>on Tap</em>
+            </div>
+          </div>
+          <div className="dot-hero-sub">
+            <span className="lead">Are you unreasonably excited about data?</span>
+            A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution.
+          </div>
+        </div>
+        <div className="dot-hero-right">
+          <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
+        </div>
+      </section>
+
+      {/* ── DIM BAR ── */}
+      <div className="dot-dim-bar">
+        <div className="dot-dim-col">
+          Let's build AI tools in an afternoon.
+        </div>
+      </div>
 
       {/* ── MAIN CONTENT ── */}
       <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
-        <div className="kot-inner">
+        <div className="dot-inner">
 
           {/* TYPE FILTER */}
           <section className="section">
@@ -641,7 +694,7 @@ export default function App() {
               <span className="section-title">Featured Tool</span>
             </div>
             <a
-              className="featured-card kot-anim"
+              className="featured-card dot-anim"
               href="https://power-score.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
@@ -690,7 +743,7 @@ export default function App() {
         </div>
       </main>
 
-      {/* ── NEWSLETTER — JSX paired with NEWSLETTER CSS block above ── */}
+      {/* ── NEWSLETTER ── */}
       <div className="nl-zone">
         <div className="nl-card">
           <div className="nl-eyebrow">Subscribe Now</div>
@@ -699,26 +752,31 @@ export default function App() {
           {nlSubmitted ? (
             <div className="nl-thanks">✓ You're in! Watch for Let's Make Some Noise.</div>
           ) : (
-            <div className="nl-form">
-              <input
-                type="text"
-                className="nl-field"
-                placeholder="First name"
-                value={nlFirstName}
-                onChange={(e) => setNlFirstName(e.target.value)}
-              />
-              <input
-                type="email"
-                className="nl-field"
-                placeholder="your@email.com"
-                value={nlEmail}
-                onChange={(e) => setNlEmail(e.target.value)}
-                onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-              />
-              <button className="nl-btn" onClick={handleSubscribe}>
-                Subscribe Now →
-              </button>
-            </div>
+            <>
+              <div className="nl-form">
+                <input
+                  type="text"
+                  className="nl-field"
+                  placeholder="First name"
+                  value={nlFirstName}
+                  onChange={(e) => setNlFirstName(e.target.value)}
+                />
+                <input
+                  type="email"
+                  className="nl-field"
+                  placeholder="your@email.com"
+                  value={nlEmail}
+                  onChange={(e) => setNlEmail(e.target.value)}
+                  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
+                />
+                <button className="nl-btn" onClick={handleSubscribe}>
+                  Subscribe Now →
+                </button>
+              </div>
+              <p className="nl-disclaimer">
+                By submitting, you understand you'll be subscribed to the Let's Make Some Noise newsletter. You may unsubscribe any time.
+              </p>
+            </>
           )}
         </div>
       </div>
