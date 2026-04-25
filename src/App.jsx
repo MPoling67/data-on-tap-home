@@ -359,7 +359,7 @@ export default function App() {
         .featured-card:hover { border-color: rgba(134,20,66,0.6); }
         .featured-thumb {
           width: 280px;
-          min-height: 160px;
+          aspect-ratio: 1200/620;
           object-fit: cover;
           flex-shrink: 0;
           display: block;
