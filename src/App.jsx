@@ -11,7 +11,7 @@ const TOOLS = [
     status: "live",
     url: "https://power.dataontap.dev/",
     img: "https://power.dataontap.dev/power-score-social.png",
-    date: "2026-03-01",
+    date: "2026-01-01",
   },
   {
     id: "creative-industries",
@@ -379,17 +379,16 @@ export default function App() {
         }
         .featured-desc {
           font-family: var(--font-body);
-          font-size: 13px;
+          font-size: 14px;
           font-weight: 300;
           color: var(--muted);
-          line-height: 1.65;
+          line-height: 1.714;
         }
         .featured-link {
           font-family: var(--font-body);
-          font-size: 11px;
+          font-size: 14px;
           font-weight: 500;
           color: var(--accent2);
-          letter-spacing: 0.04em;
           margin-top: 4px;
         }
         
@@ -454,27 +453,26 @@ export default function App() {
         .badge-progress { background: rgba(255,200,80,0.1);  color: #d4a84b;        border: 1px solid rgba(255,200,80,0.18); }
         .tool-name {
           font-family: var(--font-display);
-          font-size: 15px;
+          font-size: 20px;
           font-weight: 300;
           color: var(--text);
           margin-bottom: 6px;
-          line-height: 1.3;
+          line-height: 1.2;
         }
         .tool-desc {
           font-family: var(--font-body);
-          font-size: 12px;
+          font-size: 14px;
           font-weight: 300;
           color: var(--muted);
-          line-height: 1.65;
+          line-height: 1.714;
           flex: 1;
         }
         .tool-link {
           font-family: var(--font-body);
-          font-size: 10px;
+          font-size: 14px;
           font-weight: 500;
           color: var(--accent2);
           margin-top: 12px;
-          letter-spacing: 0.04em;
         }
 
         /* ── NO RESULTS ── */
@@ -568,13 +566,7 @@ export default function App() {
           white-space: nowrap;
         }
         .nl-btn:hover { opacity: 0.88; }
-        .nl-disclaimer {
-          font-family: var(--font-body);
-          font-size: 11px;
-          color: var(--dim);
-          margin-top: 10px;
-          line-height: 1.5;
-        }
+        
         .nl-thanks {
           font-family: var(--font-body);
           font-size: 13px;
@@ -598,13 +590,14 @@ export default function App() {
           font-family: var(--font-body);
           font-size: 11px;
           font-weight: 300;
-          color: rgba(255,255,255,0.25);
+          color: rgba(255,255,255,0.7);
           max-width: var(--inner-max);
           margin: 0 auto;
           line-height: 1.8;
+          text-align: center;
         }
         .footer-copy a {
-          color: rgba(255,255,255,0.25);
+          color: #861442;
           text-decoration: none;
         }
         .footer-copy a:hover { color: var(--accent2); }
@@ -761,9 +754,6 @@ export default function App() {
                   Subscribe Now →
                 </button>
               </div>
-              <p className="nl-disclaimer">
-                By submitting, you understand you'll be subscribed to the Let's Make Some Noise newsletter. You may unsubscribe any time.
-              </p>
             </>
           )}
         </div>
@@ -777,7 +767,7 @@ export default function App() {
           <span className="footer-sep">◆</span>
           Monica Poling
           <span className="footer-sep">◆</span>
-          <a href="https://monicapoling.com" target="_blank" rel="noopener noreferrer">monicapoling.com</a>
+          <a href="https://dataontap.dev" target="_blank" rel="noopener noreferrer">dataontap.dev</a>
         </p>
       </footer>
 
