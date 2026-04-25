@@ -5,7 +5,7 @@ const TOOLS = [
   {
     id: "power-score",
     name: "POWER Score",
-    desc: "Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation.",
+    desc: "Is your website leaving money on the table? The POWER Score is a free AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
