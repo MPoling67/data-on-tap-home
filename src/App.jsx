@@ -10,7 +10,7 @@ const TOOLS = [
     typeLabel: "Biz Intel",
     status: "live",
     url: "https://power-score.vercel.app/",
-    img: "https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png",
+    img: "https://power-score.dataontap.dev/power-score-social.png",
     date: "2026-03-01",
   },
   {
@@ -51,7 +51,7 @@ const TOOLS = [
     name: "Color Palette Generator",
     desc: "Search any Pixabay image, pick the one that matches your brand mood, and generate an instant color palette.",
     type: "design",
-    typeLabel: "Design",
+    typeLabel: "Design & Directories",
     status: "live",
     url: "https://color-palette-dot.vercel.app/",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/color-palette-og-300x157.png",
@@ -84,7 +84,7 @@ const TOOLS = [
     name: "Meet the Enchanted Artists",
     desc: "A searchable directory of New Mexico book artists — 68+ makers, Google Sheets backend, Cloudinary images.",
     type: "design",
-    typeLabel: "Design",
+    typeLabel: "Design & Directories",
     status: "progress",
     url: "https://monicapoling.com/wp-content/uploads/apps/book-arts/enchanted-artists.html",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/Enchanted-Artists-OG.png",
@@ -99,7 +99,7 @@ const TYPE_FILTERS = [
   { key: "bizintel", label: "Biz Intel" },
   { key: "data",    label: "Data & Econ Dev" },
   { key: "quiz",    label: "Quizzes & Trivia" },
-  { key: "design",  label: "Design" },
+  { key: "design",  label: "Design & Directories" },
 ];
 
 const NL_LOGGER = "https://script.google.com/macros/s/AKfycbxtCPP6q6wqCUYlSEtNdyQxFF_22K94lvgP4MJytXYX-kWqpCYkZnXG7tYV5fSZThYj/exec";
@@ -255,7 +255,8 @@ export default function App() {
 
         /* ── DIM BAR ── */
         .dot-dim-bar { background: #111110; display: flex; align-items: center; border-top: 1.5px solid rgba(134,20,66,0.5); border-bottom: 1.5px solid rgba(134,20,66,0.5); }
-        .dot-dim-col { flex: 1; text-align: center; padding: 8px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; }
+        .dot-dim-col { flex: 1; text-align: center; padding: 8px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; line-height: 1.6; }
+        .dot-dim-pipe { width: 1px; height: 18px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center; }
 
         /* ── MAIN INNER ── */
         .dot-inner {
@@ -634,6 +635,7 @@ export default function App() {
             </div>
           </div>
           <div className="dot-hero-sub">
+            <span className="lead">Your business deserves more than generic AI output.</span>
             Data on Tap is a series of business intelligence tools that turn your data, knowledge, and ideas into beautiful content — no design skills, no software, no data team. Because AI should be used to do more than generate generic social media content. Follow along as I launch new tools every week.
           </div>
         </div>
@@ -644,9 +646,11 @@ export default function App() {
 
       {/* ── DIM BAR ── */}
       <div className="dot-dim-bar">
-        <div className="dot-dim-col">
-          Because Your Business Is Worth More than Generic AI Output
-        </div>
+        <div className="dot-dim-col">Data &<br/>Economic Development</div>
+        <div className="dot-dim-pipe" />
+        <div className="dot-dim-col">Business<br/>Intelligence</div>
+        <div className="dot-dim-pipe" />
+        <div className="dot-dim-col">Custom<br/>Tools</div>
       </div>
 
       {/* ── MAIN CONTENT ── */}
@@ -686,7 +690,7 @@ export default function App() {
             >
               <img
                 className="featured-thumb"
-                src="https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png"
+                src="https://power-score.dataontap.dev/power-score-social.png"
                 alt="POWER Score"
               />
               <div className="featured-body">
