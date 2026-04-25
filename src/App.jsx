@@ -102,7 +102,7 @@ const TYPE_FILTERS = [
   { key: "design",  label: "Design & Directories" },
 ];
 
-const NL_LOGGER = "https://script.google.com/macros/s/AKfycbxtCPP6q6wqCUYlSEtNdyQxFF_22K94lvgP4MJytXYX-kWqpCYkZnXG7tYV5fSZThYj/exec";
+const NL_LOGGER = "https://script.google.com/macros/s/AKfycbwvztxaVKSDYhevhsjQ7LowAMvjBu4ONs2AqXytbNflmEJ_mfBF7mI54fgyhBZzhU8M/exec";
 
 // ── DOT ICON SVG ──────────────────────────────────────────────────────────────
 function DotIcon({ size = 52 }) {
