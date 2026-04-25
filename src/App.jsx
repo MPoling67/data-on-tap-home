@@ -226,7 +226,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8" }}>
+    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8", maxWidth: "860px", margin: "0 auto" }}>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
