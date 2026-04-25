@@ -11,7 +11,7 @@ const TOOLS = [
     status: "live",
     url: "https://power.dataontap.dev/",
     img: "https://power.dataontap.dev/power-score-social.png",
-    date: "2026-03-01",
+    date: "2026-01-01",
   },
   {
     id: "creative-industries",
@@ -66,7 +66,7 @@ const TOOLS = [
     status: "progress",
     url: "https://monicapoling.com/wp-content/uploads/apps/sharks/shark-tank-explorer.html",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/Shark-Tank-App-Hero-Image.png",
-    date: "2026-01-01",
+    date: "2026-01-05",
   },
   {
     id: "community-builder",
