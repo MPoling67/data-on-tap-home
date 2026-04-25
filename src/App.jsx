@@ -690,9 +690,9 @@ export default function App() {
               <div className="featured-body">
                 <div className="featured-name">POWER Score</div>
                 <div className="featured-desc">
-                  Share your URL and get a free competitive analysis across five dimensions —
-                  Prestige, Origin, Wow, Expertise, Reputation. Built on Monica's proprietary
-                  positioning framework.
+                  Is your website leaving money on the table? The POWER Score is a free 
+                  AI-generated website analysis that shows you exactly where you're 
+                  underselling what you do — and how to fix it.
                 </div>
                 <div className="featured-link">Try the POWER Score →</div>
               </div>
