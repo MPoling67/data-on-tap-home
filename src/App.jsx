@@ -226,7 +226,7 @@ export default function App() {
   };
 
   return (
-    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8", maxWidth: "860px", margin: "0 auto" }}>
+    <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8", maxWidth: "860px", margin: "0 auto", overflowX: "hidden" }}>
       <style>{`
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         :root {
@@ -258,7 +258,7 @@ export default function App() {
         .dot-hero-sub .lead { font-weight: 500; color: #f0ede8; display: block; margin-bottom: 0.4rem; }
         .dot-hero-right { flex: 0 0 230px; min-width: 200px; max-width: 230px; position: relative; overflow: hidden; background: #111110; }
         .dot-hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-        @media (max-width: 500px) { .dot-hero-right { display: none; } }
+        @media (max-width: 600px) { .dot-hero-right { display: none; } }
 
         /* ── DIM BAR ── */
         .dot-dim-bar { background: #111110; display: flex; align-items: center; border-top: 1.5px solid rgba(134,20,66,0.5); border-bottom: 1.5px solid rgba(134,20,66,0.5); }
@@ -306,7 +306,7 @@ export default function App() {
           gap: 8px;
           margin-bottom: 0.5rem;
         }
-        @media (max-width: 640px) { .type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+        @media (max-width: 700px) { .type-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
         .type-card {
           background: var(--surface);
           border: 1px solid var(--border);
