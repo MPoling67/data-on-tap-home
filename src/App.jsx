@@ -9,8 +9,8 @@ const TOOLS = [
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
-    url: "https://power-score.vercel.app/",
-    img: "https://power-score.dataontap.dev/power-score-social.png",
+    url: "https://power.dataontap.dev/",
+    img: "https://power.dataontap.dev/power-score-social.png",
     date: "2026-03-01",
   },
   {
@@ -684,13 +684,13 @@ export default function App() {
             </div>
             <a
               className="featured-card dot-anim"
-              href="https://power-score.vercel.app/"
+              href="https://power.dataontap.dev/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 className="featured-thumb"
-                src="https://power-score.dataontap.dev/power-score-social.png"
+                src="https://power.dataontap.dev/power-score-social.png"
                 alt="POWER Score"
               />
               <div className="featured-body">
