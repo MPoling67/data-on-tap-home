@@ -206,7 +206,7 @@ export default function App() {
       const params = new URLSearchParams({
         timestamp: new Date().toISOString(),
         event: "subscribe",
-        app: "dataontap.dev",
+        app: "Data on Tap",
         firstName: nlFirstName.trim(),
         email: nlEmail.trim(),
       });
