@@ -204,16 +204,18 @@ export default function App() {
     setNlSubmitted(true);
     try {
       const params = new URLSearchParams({
+        timestamp: new Date().toISOString(),
+        event: "subscribe",
+        app: "dataontap.dev",
         firstName: nlFirstName.trim(),
         email: nlEmail.trim(),
-        source: "dataontap.dev",
       });
       await fetch(`${NL_LOGGER}?${params.toString()}`, {
         method: "GET",
         mode: "no-cors",
       });
     } catch (_) {
-      // silent — submission already shown as success
+      // silent
     }
   };
 
