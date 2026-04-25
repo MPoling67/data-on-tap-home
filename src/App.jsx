@@ -634,8 +634,7 @@ export default function App() {
             </div>
           </div>
           <div className="dot-hero-sub">
-            <span className="lead">Are you unreasonably excited about data?</span>
-            A free library of AI-powered mini Business Intelligence Tools for people who want to use data to tell smarter stories — and AI to close the gap between idea and execution.
+            Data on Tap is a series of business intelligence tools that turn your data, knowledge, and ideas into beautiful content — no design skills, no software, no data team. Because AI should be used to do more than generate generic social media content. Follow along as I launch new tools every week.
           </div>
         </div>
         <div className="dot-hero-right">
@@ -646,7 +645,7 @@ export default function App() {
       {/* ── DIM BAR ── */}
       <div className="dot-dim-bar">
         <div className="dot-dim-col">
-          Let's build AI tools in an afternoon.
+          Because Your Business Is Worth More than Generic AI Output
         </div>
       </div>
 
