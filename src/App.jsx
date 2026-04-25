@@ -11,7 +11,7 @@ const TOOLS = [
     status: "live",
     url: "https://power.dataontap.dev/",
     img: "https://power.dataontap.dev/power-score-social.png",
-    date: "2026-01-01",
+    date: "2026-03-01",
   },
   {
     id: "creative-industries",
@@ -203,15 +203,14 @@ export default function App() {
     if (!nlEmail.trim()) return;
     setNlSubmitted(true);
     try {
-      await fetch(NL_LOGGER, {
-        method: "POST",
+      const params = new URLSearchParams({
+        firstName: nlFirstName.trim(),
+        email: nlEmail.trim(),
+        source: "dataontap.dev",
+      });
+      await fetch(`${NL_LOGGER}?${params.toString()}`, {
+        method: "GET",
         mode: "no-cors",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          firstName: nlFirstName.trim(),
-          email: nlEmail.trim(),
-          source: "dataontap.dev",
-        }),
       });
     } catch (_) {
       // silent — submission already shown as success
@@ -255,7 +254,7 @@ export default function App() {
 
         /* ── DIM BAR ── */
         .dot-dim-bar { background: #111110; display: flex; align-items: center; border-top: 1.5px solid rgba(134,20,66,0.5); border-bottom: 1.5px solid rgba(134,20,66,0.5); }
-        .dot-dim-col { flex: 1; text-align: center; padding: 8px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; line-height: 1.6; }
+        .dot-dim-col { flex: 1; text-align: center; padding: 14px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; line-height: 1.6; }
         .dot-dim-pipe { width: 1px; height: 18px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center; }
 
         /* ── MAIN INNER ── */
@@ -731,7 +730,7 @@ export default function App() {
           <div className="nl-heading">Turn what you know into what you're known for.</div>
           <p className="nl-body">Weekly tips on using AI to organize, share, and monetize your expertise.</p>
           {nlSubmitted ? (
-            <div className="nl-thanks">✓ You're in! Watch for Let's Make Some Noise.</div>
+            <div className="nl-thanks">✓ You've been subscribed. Watch your email for a welcome note from Monica.</div>
           ) : (
             <>
               <div className="nl-form">
@@ -765,9 +764,7 @@ export default function App() {
         <p className="footer-copy">
           © 2026 Data on Tap
           <span className="footer-sep">◆</span>
-          Monica Poling
-          <span className="footer-sep">◆</span>
-          <a href="https://dataontap.dev" target="_blank" rel="noopener noreferrer">dataontap.dev</a>
+          <a href="https://monicapoling.com" target="_blank" rel="noopener noreferrer">Monica Poling</a>
         </p>
       </footer>
 
