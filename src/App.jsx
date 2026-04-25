@@ -401,9 +401,9 @@ export default function App() {
           letter-spacing: 0.04em;
           margin-top: 4px;
         }
-        @media (max-width: 600px) {
+        @media (max-width: 720px) {
           .featured-card { flex-direction: column; }
-          .featured-thumb { width: 100%; min-height: 180px; }
+          .featured-thumb { width: 100%; aspect-ratio: 1200/620; min-height: unset; }
         }
 
         /* ── TOOLS GRID ── */
