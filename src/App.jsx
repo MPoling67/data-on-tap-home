@@ -6,8 +6,8 @@ const TOOLS = [
     id: "power-score",
     name: "POWER Score",
     desc: "Share your URL and get a free competitive analysis across five dimensions — Prestige, Origin, Wow, Expertise, Reputation.",
-    type: "pov",
-    typeLabel: "POV",
+    type: "bizintel",
+    typeLabel: "Biz Intel",
     status: "live",
     url: "https://power-score.vercel.app/",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/Power-Score-Hero-Image-300x157.png",
@@ -40,7 +40,7 @@ const TOOLS = [
     name: "WHEELS Museum History Quiz",
     desc: "How well do you know Albuquerque's railroad and Route 66 story? 10 questions, each tied to a WHEELS Museum exhibit.",
     type: "quiz",
-    typeLabel: "Quiz",
+    typeLabel: "Quizzes & Trivia",
     status: "live",
     url: "https://monicapoling.com/wheels",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/Wheels-Museum-App-Cover-300x180.png",
@@ -50,8 +50,8 @@ const TOOLS = [
     id: "color-palette",
     name: "Color Palette Generator",
     desc: "Search any Pixabay image, pick the one that matches your brand mood, and generate an instant color palette.",
-    type: "generator",
-    typeLabel: "Generator",
+    type: "design",
+    typeLabel: "Design",
     status: "live",
     url: "https://color-palette-dot.vercel.app/",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/color-palette-og-300x157.png",
@@ -83,8 +83,8 @@ const TOOLS = [
     id: "enchanted-artists",
     name: "Meet the Enchanted Artists",
     desc: "A searchable directory of New Mexico book artists — 68+ makers, Google Sheets backend, Cloudinary images.",
-    type: "generator",
-    typeLabel: "Generator",
+    type: "design",
+    typeLabel: "Design",
     status: "progress",
     url: "https://monicapoling.com/wp-content/uploads/apps/book-arts/enchanted-artists.html",
     img: "https://monicapoling.com/wp-content/uploads/2026/04/Enchanted-Artists-OG.png",
@@ -95,11 +95,11 @@ const TOOLS = [
 TOOLS.sort((a, b) => new Date(b.date) - new Date(a.date));
 
 const TYPE_FILTERS = [
-  { key: "all",       label: "All Tools",       desc: "Every tool in the library" },
-  { key: "pov",       label: "POV",             desc: "Positioning & intelligence" },
-  { key: "data",      label: "Data & Econ Dev",  desc: "Economic & data intelligence" },
-  { key: "quiz",      label: "Quiz & Trivia",    desc: "Test your knowledge" },
-  { key: "generator", label: "Directories",      desc: "Search & explore" },
+  { key: "all",     label: "All Tools" },
+  { key: "bizintel", label: "Biz Intel" },
+  { key: "data",    label: "Data & Econ Dev" },
+  { key: "quiz",    label: "Quizzes & Trivia" },
+  { key: "design",  label: "Design" },
 ];
 
 const NL_LOGGER = "https://script.google.com/macros/s/AKfycbxtCPP6q6wqCUYlSEtNdyQxFF_22K94lvgP4MJytXYX-kWqpCYkZnXG7tYV5fSZThYj/exec";
@@ -180,13 +180,6 @@ function ToolCard({ tool }) {
         </svg>
       </div>
       <div className="tool-body">
-        <div className="tool-meta">
-          <span className="badge badge-type">{tool.typeLabel}</span>
-          {isLive
-            ? <span className="badge badge-live">Live</span>
-            : <span className="badge badge-progress">In Progress</span>
-          }
-        </div>
         <div className="tool-name">{tool.name}</div>
         <div className="tool-desc">{tool.desc}</div>
         <div className="tool-link">View tool →</div>
@@ -337,13 +330,7 @@ export default function App() {
           color: #f0ede8;
           margin-bottom: 3px;
         }
-        .type-desc {
-          font-family: var(--font-body);
-          font-size: 10px;
-          font-weight: 300;
-          color: var(--muted);
-          line-height: 1.4;
-        }
+        
 
         /* ── FEATURED CARD ── */
         .featured-card {
@@ -351,21 +338,24 @@ export default function App() {
           border: 1px solid rgba(134,20,66,0.3);
           border-radius: var(--radius);
           overflow: hidden;
-          display: flex;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0;
           text-decoration: none;
           transition: border-color 0.15s;
           margin-bottom: 2rem;
         }
         .featured-card:hover { border-color: rgba(134,20,66,0.6); }
         .featured-thumb {
-          width: 280px;
+          width: 100%;
           aspect-ratio: 1200/620;
           object-fit: cover;
-          flex-shrink: 0;
           display: block;
         }
-        .featured-body {
-          padding: 22px 24px;
+        @media (max-width: 560px) {
+          .featured-card { grid-template-columns: 1fr; }
+        }.featured-body {
+          padding: 20px 24px;
           display: flex;
           flex-direction: column;
           justify-content: center;
@@ -401,10 +391,7 @@ export default function App() {
           letter-spacing: 0.04em;
           margin-top: 4px;
         }
-        @media (max-width: 720px) {
-          .featured-card { flex-direction: column; }
-          .featured-thumb { width: 100%; aspect-ratio: 1200/620; min-height: unset; }
-        }
+        
 
         /* ── TOOLS GRID ── */
         .tools-grid {
@@ -681,7 +668,6 @@ export default function App() {
                 >
                   <div className="type-rule" />
                   <div className="type-name">{f.label}</div>
-                  <div className="type-desc">{f.desc}</div>
                 </div>
               ))}
             </div>
@@ -705,7 +691,6 @@ export default function App() {
                 alt="POWER Score"
               />
               <div className="featured-body">
-                <div className="featured-eyebrow">POV · Free Tool</div>
                 <div className="featured-name">POWER Score</div>
                 <div className="featured-desc">
                   Share your URL and get a free competitive analysis across five dimensions —
