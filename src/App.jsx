@@ -53,9 +53,9 @@ const TOOLS = [
     type: "design",
     typeLabel: "Design & Directories",
     status: "live",
-    url: "https://color-palette-dot.vercel.app/",
-    img: "https://monicapoling.com/wp-content/uploads/2026/04/color-palette-og-300x157.png",
-    date: "2026-04-10",
+    url: "https://colorpalette.dataontap.dev/",
+    img: "https://colorpalette.dataontap.dev/images/color-palette-social.png",
+    date: "2026-04-20",
   },
   {
     id: "shark-tank",
