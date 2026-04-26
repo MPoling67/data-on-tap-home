@@ -11,7 +11,7 @@ const TOOLS = [
     status: "live",
     url: "https://power.dataontap.dev/",
     img: "https://power.dataontap.dev/power-score-social.png",
-    date: "2026-01-01",
+    date: "2026-04-19",
   },
   {
     id: "creative-industries",
