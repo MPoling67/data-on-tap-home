@@ -3,14 +3,14 @@ import { useState } from "react";
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
   {
-    id: "power-score",
-    name: "POWER Score",
-    desc: "Is your website leaving money on the table? The POWER Score is a free AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
+    id: "money-moves",
+    name: "Money Moves",
+    desc: "Is your website leaving money on the table? The Money Moves brief provides a free, instant AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
-    url: "https://power.dataontap.dev/",
-    img: "https://power.dataontap.dev/power-score-social.png",
+    url: "https://money.dataontap.dev/",
+    img: "https://money.dataontap.dev/power-score-social.png",
     date: "2026-04-19",
   },
   {
