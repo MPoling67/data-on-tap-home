@@ -10,7 +10,7 @@ const TOOLS = [
     typeLabel: "Biz Intel",
     status: "live",
     url: "https://money.dataontap.dev/",
-    img: "https://money.dataontap.dev/power-score-social.png",
+    img: "https://money.dataontap.dev/money-moves-social.png",
     date: "2026-04-19",
   },
   {
