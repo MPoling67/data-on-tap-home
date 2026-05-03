@@ -678,23 +678,23 @@ export default function App() {
             </div>
             <a
               className="featured-card dot-anim"
-              href="https://power.dataontap.dev/"
+              href="https://money.dataontap.dev/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 className="featured-thumb"
-                src="https://power.dataontap.dev/power-score-social.png"
-                alt="POWER Score"
+                src="https://money.dataontap.dev/money-moves-social.png"
+                alt="Money Moves Brief"
               />
               <div className="featured-body">
-                <div className="featured-name">POWER Score</div>
+                <div className="featured-name">Money Moves Brief</div>
                 <div className="featured-desc">
-                  Is your website leaving money on the table? The POWER Score is a free 
+                  Is your website leaving money on the table? The Money Moves brief is a free 
                   AI-generated website analysis that shows you exactly where you're 
                   underselling what you do — and how to fix it.
                 </div>
-                <div className="featured-link">Try the POWER Score →</div>
+                <div className="featured-link">Get Your Money Moves Brief →</div>
               </div>
             </a>
           </section>
