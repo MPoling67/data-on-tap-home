@@ -45,8 +45,8 @@ const TOOLS = [
     typeLabel: "Quizzes & Trivia",
     status: "live",
     url: "https://wheels.dataontap.dev",
-    img: "https://money.dataontap.dev/wheels-museum-social.png",
-    date: "2026-04-05",
+    img: "https://wheels.dataontap.dev/wheels-museum-social.png",
+    date: "2026-05-01",
   },
   {
     id: "color-palette",
