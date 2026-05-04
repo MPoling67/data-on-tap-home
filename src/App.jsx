@@ -256,6 +256,7 @@ export default function App() {
           grid-template-columns: 1fr 1fr;
           gap: 0;
           text-decoration: none;
+          color: var(--text);
           transition: border-color 0.15s;
           margin-bottom: 2rem;
         }
