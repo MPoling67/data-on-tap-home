@@ -54,7 +54,7 @@ const TOOLS = [
     typeLabel: "Design & Directories",
     status: "live",
     url: "https://colorpalette.dataontap.dev/",
-    img: "https://colorpalette.dataontap.dev/images/color-palette-social.png",
+    img: "https://colorpalette.dataontap.dev/color-palette-social.png",
     date: "2026-04-20",
   },
   {
