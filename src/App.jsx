@@ -1,4 +1,6 @@
 import { useState } from "react";
+import DotHero from "./DotHero";
+import SubscribeBar from "./SubscribeBar";
 
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
@@ -102,55 +104,6 @@ const TYPE_FILTERS = [
   { key: "design",  label: "Design & Directories" },
 ];
 
-const NL_LOGGER = "https://script.google.com/macros/s/AKfycbwvztxaVKSDYhevhsjQ7LowAMvjBu4ONs2AqXytbNflmEJ_mfBF7mI54fgyhBZzhU8M/exec";
-
-// ── DOT ICON SVG ──────────────────────────────────────────────────────────────
-function DotIcon({ size = 52 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <rect width="64" height="64" fill="#111110" rx="8"/>
-      <circle cx="32" cy="6"  r="2"   fill="#ffffff" opacity="0.18"/>
-      <circle cx="26" cy="13" r="2.5" fill="#ffffff" opacity="0.22"/>
-      <circle cx="37" cy="15" r="2"   fill="#ffffff" opacity="0.18"/>
-      <circle cx="31" cy="20" r="3"   fill="#ffffff" opacity="0.28"/>
-      <circle cx="41" cy="19" r="2"   fill="#ffffff" opacity="0.18"/>
-      <circle cx="22" cy="19" r="2"   fill="#ffffff" opacity="0.2"/>
-      <circle cx="18" cy="27" r="3"   fill="#ffffff" opacity="0.42"/>
-      <circle cx="28" cy="24" r="3.5" fill="#ffffff" opacity="0.5"/>
-      <circle cx="38" cy="25" r="3"   fill="#ffffff" opacity="0.45"/>
-      <circle cx="46" cy="28" r="2.5" fill="#ffffff" opacity="0.35"/>
-      <circle cx="15" cy="35" r="3.5" fill="#ffffff" opacity="0.45"/>
-      <circle cx="25" cy="31" r="4"   fill="#ffffff" opacity="0.52"/>
-      <circle cx="35" cy="30" r="4"   fill="#861442" opacity="0.42"/>
-      <circle cx="45" cy="33" r="3.5" fill="#861442" opacity="0.38"/>
-      <circle cx="51" cy="38" r="2.5" fill="#861442" opacity="0.28"/>
-      <circle cx="14" cy="43" r="4"   fill="#861442" opacity="0.55"/>
-      <circle cx="24" cy="39" r="5"   fill="#861442" opacity="0.7"/>
-      <circle cx="34" cy="38" r="5.5" fill="#861442" opacity="0.82"/>
-      <circle cx="44" cy="40" r="4.5" fill="#861442" opacity="0.72"/>
-      <circle cx="52" cy="45" r="3"   fill="#861442" opacity="0.45"/>
-      <circle cx="18" cy="51" r="4.5" fill="#861442" opacity="0.88"/>
-      <circle cx="28" cy="47" r="5.5" fill="#861442" opacity="1"/>
-      <circle cx="38" cy="46" r="6"   fill="#861442" opacity="1"/>
-      <circle cx="48" cy="49" r="4.5" fill="#861442" opacity="0.9"/>
-      <circle cx="23" cy="58" r="4"   fill="#861442" opacity="0.85"/>
-      <circle cx="33" cy="56" r="5"   fill="#861442" opacity="1"/>
-      <circle cx="43" cy="57" r="4"   fill="#861442" opacity="0.78"/>
-    </svg>
-  );
-}
-
-// ── DOT LOGO (C-variant) ──────────────────────────────────────────────────────
-function DotLogo({ size = 18 }) {
-  return (
-    <svg width={size} height={size} viewBox="0 0 54 54" fill="none">
-      <rect x="0"  y="0"  width="24" height="24" fill="#861442"/>
-      <rect x="30" y="0"  width="24" height="24" fill="#ffffff" opacity="0.6"/>
-      <rect x="0"  y="30" width="24" height="24" fill="#ffffff" opacity="0.25"/>
-      <rect x="30" y="30" width="24" height="24" fill="#861442" opacity="0.25"/>
-    </svg>
-  );
-}
 
 // ── TOOL CARD ─────────────────────────────────────────────────────────────────
 function ToolCard({ tool }) {
@@ -191,33 +144,10 @@ function ToolCard({ tool }) {
 // ── MAIN APP ──────────────────────────────────────────────────────────────────
 export default function App() {
   const [activeType, setActiveType] = useState("all");
-  const [nlFirstName, setNlFirstName] = useState("");
-  const [nlEmail, setNlEmail] = useState("");
-  const [nlSubmitted, setNlSubmitted] = useState(false);
 
   const filtered = activeType === "all"
     ? TOOLS
     : TOOLS.filter((t) => t.type === activeType);
-
-  const handleSubscribe = async () => {
-    if (!nlEmail.trim()) return;
-    setNlSubmitted(true);
-    try {
-      const params = new URLSearchParams({
-        timestamp: new Date().toISOString(),
-        event: "subscribe",
-        app: "Data on Tap",
-        firstName: nlFirstName.trim(),
-        email: nlEmail.trim(),
-      });
-      await fetch(`${NL_LOGGER}?${params.toString()}`, {
-        method: "GET",
-        mode: "no-cors",
-      });
-    } catch (_) {
-      // silent
-    }
-  };
 
   return (
     <div style={{ minHeight: "100vh", background: "#1a1a18", color: "#f0ede8", maxWidth: "860px", margin: "0 auto", overflowX: "hidden" }}>
@@ -240,24 +170,6 @@ export default function App() {
           to   { opacity: 1; transform: translateY(0); }
         }
         .dot-anim { animation: fadeUp 0.5s ease both; }
-
-        /* ── HERO ── */
-        .dot-hero { width: 100%; background: #111110; display: flex; align-items: stretch; min-height: 220px; max-height: 280px; border-bottom: 1px solid rgba(255,255,255,0.06); }
-        .dot-hero-left { flex: 3; padding: 2rem var(--px); display: flex; flex-direction: column; justify-content: center; gap: 14px; }
-        .dot-hero-logo { display: flex; align-items: center; gap: 14px; }
-        .dot-hero-title { font-family: var(--font-display); font-size: clamp(36px,6vw,52px); color: #f0ede8; line-height: 1; letter-spacing: -0.02em; }
-        .dot-hero-title strong { font-weight: 700; font-style: normal; color: #f0ede8; }
-        .dot-hero-title em { font-weight: 300; font-style: italic; color: #be3650; }
-        .dot-hero-sub { font-family: var(--font-body); font-size: 14px; font-weight: 300; line-height: 1.7; color: rgba(255,255,255,0.6); max-width: 520px; }
-        .dot-hero-sub .lead { font-weight: 500; color: #f0ede8; display: block; margin-bottom: 0.4rem; }
-        .dot-hero-right { flex: 0 0 230px; min-width: 200px; max-width: 230px; position: relative; overflow: hidden; background: #111110; }
-        .dot-hero-right img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
-        @media (max-width: 600px) { .dot-hero-right { display: none; } }
-
-        /* ── DIM BAR ── */
-        .dot-dim-bar { background: #111110; display: flex; align-items: center; border-top: 1.5px solid rgba(134,20,66,0.5); border-bottom: 1.5px solid rgba(134,20,66,0.5); }
-        .dot-dim-col { flex: 1; text-align: center; padding: 14px var(--px); font-family: var(--font-body); font-size: 10px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #f0ede8; line-height: 1.6; }
-        .dot-dim-pipe { width: 1px; height: 18px; background: rgba(255,255,255,0.12); flex-shrink: 0; align-self: center; }
 
         /* ── MAIN INNER ── */
         .dot-inner {
@@ -382,10 +294,7 @@ export default function App() {
           font-family: var(--font-body);
           font-size: 14px;
           font-weight: 300;
-          color: var(--muted);
-          line-height: 1.714;
-        }
-        .featured-link {
+          color: #c8c4bc;
           font-family: var(--font-body);
           font-size: 14px;
           font-weight: 500;
@@ -464,9 +373,7 @@ export default function App() {
           font-family: var(--font-body);
           font-size: 14px;
           font-weight: 300;
-          color: var(--muted);
-          line-height: 1.714;
-          flex: 1;
+          color: #c8c4bc;
         }
         .tool-link {
           font-family: var(--font-body);
@@ -483,96 +390,6 @@ export default function App() {
           color: var(--dim);
           font-size: 13px;
           font-family: var(--font-body);
-        }
-
-        /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-         * NEWSLETTER — pull into SubscribeBar.jsx when ready
-         * ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-        .nl-zone {
-          background: #111110;
-          padding: 2.5rem var(--px);
-          border-top: 1.5px solid rgba(134,20,66,0.5);
-        }
-        .nl-card {
-          max-width: 640px;
-          margin: 0 auto;
-        }
-        .nl-eyebrow {
-          font-family: var(--font-body);
-          font-size: 10px;
-          font-weight: 500;
-          text-transform: uppercase;
-          letter-spacing: 0.14em;
-          color: var(--accent2);
-          margin-bottom: 8px;
-        }
-        .nl-heading {
-          font-family: var(--font-body);
-          font-size: 13px;
-          font-weight: 500;
-          color: #f0ede8;
-          line-height: 1.65;
-          margin-bottom: 2px;
-        }
-        .nl-body {
-          font-family: var(--font-body);
-          font-size: 13px;
-          font-weight: 300;
-          color: var(--muted);
-          line-height: 1.65;
-          margin-bottom: 1.25rem;
-        }
-        .nl-form {
-          display: flex;
-          gap: 8px;
-          flex-wrap: wrap;
-        }
-        .nl-field {
-          flex: 1;
-          min-width: 120px;
-          background: #1a1a18;
-          border: 1px solid rgba(255,255,255,0.4);
-          border-radius: 8px;
-          padding: 9px 12px;
-          font-family: var(--font-body);
-          font-size: 13px;
-          font-weight: 300;
-          color: #f0ede8;
-          -webkit-text-fill-color: #f0ede8;
-          outline: none;
-          transition: border-color 0.2s;
-        }
-        .nl-field:focus { border-color: #861442; }
-        .nl-field::placeholder { color: #5a5a56; }
-        .nl-field:-webkit-autofill,
-        .nl-field:-webkit-autofill:hover,
-        .nl-field:-webkit-autofill:focus {
-          -webkit-box-shadow: 0 0 0 1000px #1a1a18 inset !important;
-          -webkit-text-fill-color: #f0ede8 !important;
-          caret-color: #f0ede8;
-          border-color: #861442;
-        }
-        .nl-btn {
-          background: #861442;
-          color: #fff;
-          border: none;
-          border-radius: var(--radius);
-          padding: 10px 22px;
-          font-family: var(--font-body);
-          font-size: 13px;
-          font-weight: 500;
-          cursor: pointer;
-          letter-spacing: 0.04em;
-          transition: opacity 0.15s;
-          white-space: nowrap;
-        }
-        .nl-btn:hover { opacity: 0.88; }
-        
-        .nl-thanks {
-          font-family: var(--font-body);
-          font-size: 13px;
-          color: #4caf8a;
-          margin-top: 10px;
         }
 
         /* ── FOOTER RULE ── */
@@ -616,36 +433,8 @@ export default function App() {
         Data on Tap — Free AI-Powered Business Intelligence Tools
       </h1>
 
-      {/* ── HERO ── */}
-      <section className="dot-hero">
-        <div className="dot-hero-left">
-          <div className="dot-hero-logo">
-            <div style={{ flexShrink: 0, lineHeight: 0 }}>
-              <DotIcon size={52} />
-            </div>
-            <div className="dot-hero-title">
-              <strong>Data</strong>{" "}
-              <em>on Tap</em>
-            </div>
-          </div>
-          <div className="dot-hero-sub">
-            <span className="lead">Your business deserves more than generic AI output.</span>
-            Data on Tap is a series of business intelligence tools that turn your data, knowledge, and ideas into beautiful content — no design skills, no software, no data team. Because AI should be used to do more than generate generic social media content. Follow along as I launch new tools every week.
-          </div>
-        </div>
-        <div className="dot-hero-right">
-          <img src="/monica-poling-dot-hero.png" alt="Monica Poling, founder of Data on Tap" />
-        </div>
-      </section>
-
-      {/* ── DIM BAR ── */}
-      <div className="dot-dim-bar">
-        <div className="dot-dim-col">Data &<br/>Economic Development</div>
-        <div className="dot-dim-pipe" />
-        <div className="dot-dim-col">Business<br/>Intelligence</div>
-        <div className="dot-dim-pipe" />
-        <div className="dot-dim-col">Custom<br/>Tools</div>
-      </div>
+      {/* ── HERO + DIM BAR ── */}
+      <DotHero />
 
       {/* ── MAIN CONTENT ── */}
       <main style={{ background: "var(--bg)", paddingBottom: "1rem" }}>
@@ -725,40 +514,8 @@ export default function App() {
         </div>
       </main>
 
-      {/* ── NEWSLETTER ── */}
-      <div className="nl-zone">
-        <div className="nl-card">
-          <div className="nl-eyebrow">Subscribe Now</div>
-          <div className="nl-heading">Turn what you know into what you're known for.</div>
-          <p className="nl-body">Weekly tips on using AI to organize, share, and monetize your expertise.</p>
-          {nlSubmitted ? (
-            <div className="nl-thanks">✓ You've been subscribed. Watch your email for a welcome note from Monica.</div>
-          ) : (
-            <>
-              <div className="nl-form">
-                <input
-                  type="text"
-                  className="nl-field"
-                  placeholder="First name"
-                  value={nlFirstName}
-                  onChange={(e) => setNlFirstName(e.target.value)}
-                />
-                <input
-                  type="email"
-                  className="nl-field"
-                  placeholder="your@email.com"
-                  value={nlEmail}
-                  onChange={(e) => setNlEmail(e.target.value)}
-                  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-                />
-                <button className="nl-btn" onClick={handleSubscribe}>
-                  Subscribe Now →
-                </button>
-              </div>
-            </>
-          )}
-        </div>
-      </div>
+      {/* ── SUBSCRIBE ── */}
+      <SubscribeBar appName="Data on Tap" url={window.location.href} />
 
       {/* ── FOOTER ── */}
       <div className="page-footer-rule" />
