@@ -44,8 +44,8 @@ const TOOLS = [
     type: "quiz",
     typeLabel: "Quizzes & Trivia",
     status: "live",
-    url: "https://monicapoling.com/wheels",
-    img: "https://monicapoling.com/wp-content/uploads/2026/04/Wheels-Museum-App-Cover-300x180.png",
+    url: "https://wheels.dataontap.dev",
+    img: "https://money.dataontap.dev/wheels-museum-social.png",
     date: "2026-04-05",
   },
   {
