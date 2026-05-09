@@ -423,6 +423,7 @@ export default function App() {
           color: #861442;
           text-decoration: none;
         }
+        .footer-copy a:visited { font-weight: 500; color: #861442; }
         .footer-copy a:hover { font-weight: 300; color: var(--accent2); }
         .footer-sep {
           color: var(--accent2);
