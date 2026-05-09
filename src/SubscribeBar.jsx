@@ -39,13 +39,14 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
                 placeholder="First name"
                 style={{ flex: 1, background: "transparent", border: "none", padding: "6px 10px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
               />
+              <div style={{ width: 1, background: "rgba(255,255,255,0.15)", alignSelf: "stretch", margin: "4px 0" }} />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                 placeholder="your@email.com"
-                style={{ flex: 2, background: "transparent", border: "none", borderLeft: "1px solid rgba(255,255,255,0.08)", padding: "6px 10px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
+                style={{ flex: 1, background: "transparent", border: "none", padding: "6px 10px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
               />
               <button
                 onClick={handleSubmit}
