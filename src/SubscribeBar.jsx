@@ -15,7 +15,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
       await fetch(LOGGER, {
         method: "POST", mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ sheet: "Other Leads", timestamp: humanTime, event: "newsletter_footer_submit", app: appName, url, score, firstName: firstName.trim(), email: email.trim(), subscribe: "yes" }),
+        body: JSON.stringify({ sheet: "Other Leads", timestamp: humanTime, event: "email_submit", app: appName, url, score, firstName: firstName.trim(), email: email.trim(), subscribe: "yes" }),
       });
       setSubmitted(true);
     } catch { /* silent */ }
