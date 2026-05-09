@@ -420,11 +420,11 @@ export default function App() {
         }
         .footer-copy a {
           font-weight: 500;
-          color: #861442;
+          color: #be3650;
           text-decoration: none;
         }
-        .footer-copy a:visited { font-weight: 500; color: #861442; }
-        .footer-copy a:hover { font-weight: 300; color: var(--accent2); }
+        .footer-copy a:visited { font-weight: 500; color: #be3650; }
+        .footer-copy a:hover { font-weight: 300; color: #861442; }
         .footer-sep {
           color: var(--accent2);
           margin: 0 6px;
