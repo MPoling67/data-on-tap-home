@@ -287,7 +287,7 @@ export default function App() {
         .featured-name {
           font-family: var(--font-display);
           font-size: 22px;
-          font-weight: 300;
+          font-weight: 600;
           color: #f0ede8;
           line-height: 1.2;
         }
@@ -301,7 +301,7 @@ export default function App() {
         .featured-link {
           font-family: var(--font-body);
           font-size: 14px;
-          font-weight: 300;
+          font-weight: 600;
           color: #861442;
           margin-top: 4px;
         }
@@ -368,7 +368,7 @@ export default function App() {
         .tool-name {
           font-family: var(--font-display);
           font-size: 20px;
-          font-weight: 300;
+          font-weight: 600;
           color: var(--text);
           margin-bottom: 6px;
           line-height: 1.2;
@@ -382,7 +382,7 @@ export default function App() {
         .tool-link {
           font-family: var(--font-body);
           font-size: 14px;
-          font-weight: 300;
+          font-weight: 600;
           color: #861442;
           margin-top: 12px;
         }
