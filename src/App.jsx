@@ -7,7 +7,7 @@ const TOOLS = [
   {
     id: "money-moves",
     name: "Money Moves",
-    desc: "Is your website leaving money on the table? The Money Moves brief provides a free, instant AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
+    desc: "Are you leaving money on the table? The Money Moves analysis provides a free, instant AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
@@ -480,16 +480,16 @@ export default function App() {
               <img
                 className="featured-thumb"
                 src="https://money.dataontap.dev/money-moves-social.png"
-                alt="Money Moves Brief"
+                alt="Money Moves"
               />
               <div className="featured-body">
-                <div className="featured-name">Money Moves Brief</div>
+                <div className="featured-name">Money Moves</div>
                 <div className="featured-desc">
-                  Is your website leaving money on the table? The Money Moves brief is a free 
+                  Is your website leaving money on the table? Money Moves is a free 
                   AI-generated website analysis that shows you exactly where you're 
                   underselling what you do — and how to fix it.
                 </div>
-                <div className="featured-link">Get Your Money Moves Brief →</div>
+                <div className="featured-link">Get Your Money Moves →</div>
               </div>
             </a>
           </section>
