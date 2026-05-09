@@ -31,27 +31,26 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
         </div>
         {!submitted ? (
           <>
-            <div style={{ display: "flex", gap: 8, marginBottom: 8, border: "1.5px solid rgba(134,20,66,0.5)", borderRadius: 10, padding: "6px 6px 6px 6px", background: "#111110" }}>
+            <div style={{ display: "flex", gap: 8, marginBottom: 8 }}>
               <input
                 type="text"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="First name"
-                style={{ flex: 1, background: "transparent", border: "none", padding: "8px 16px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
+                style={{ flex: 1, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
               />
-              <div style={{ width: 1, background: "rgba(255,255,255,0.15)", alignSelf: "stretch", margin: "4px 0" }} />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                 placeholder="your@email.com"
-                style={{ flex: 1, background: "transparent", border: "none", padding: "8px 16px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
+                style={{ flex: 2, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
               />
               <button
                 onClick={handleSubmit}
                 disabled={!email.trim()}
-                style={{ background: "#861442", color: "#fff", border: "none", borderRadius: 7, padding: "8px 18px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap", cursor: email.trim() ? "pointer" : "not-allowed", opacity: email.trim() ? 1 : 0.4, transition: "opacity .18s" }}
+                style={{ background: "#861442", color: "#fff", border: "none", borderRadius: 8, padding: "9px 20px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, fontWeight: 500, whiteSpace: "nowrap", cursor: email.trim() ? "pointer" : "not-allowed", opacity: email.trim() ? 1 : 0.4, transition: "opacity .18s" }}
               >
                 Subscribe Now →
               </button>
