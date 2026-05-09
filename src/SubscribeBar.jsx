@@ -37,7 +37,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="First name"
-                style={{ flex: 1, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
+                style={{ flex: 1, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
               />
               <input
                 type="email"
@@ -45,7 +45,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                 placeholder="your@email.com"
-                style={{ flex: 2, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
+                style={{ flex: 2, background: "#111110", border: "1px solid rgba(134,20,66,0.5)", borderRadius: 8, padding: "9px 12px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
               />
               <button
                 onClick={handleSubmit}
