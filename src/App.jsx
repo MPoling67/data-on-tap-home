@@ -410,19 +410,20 @@ export default function App() {
         }
         .footer-copy {
           font-family: var(--font-body);
-          font-size: 11px;
+          font-size: 12px;
           font-weight: 300;
-          color: rgba(255,255,255,0.7);
+          line-height: 20px;
+          color: #f0ede8;
           max-width: var(--inner-max);
           margin: 0 auto;
-          line-height: 1.8;
           text-align: center;
         }
         .footer-copy a {
+          font-weight: 500;
           color: #861442;
           text-decoration: none;
         }
-        .footer-copy a:hover { color: var(--accent2); }
+        .footer-copy a:hover { font-weight: 300; color: var(--accent2); }
         .footer-sep {
           color: var(--accent2);
           margin: 0 6px;
