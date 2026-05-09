@@ -9,6 +9,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
 
   const handleSubmit = async () => {
     if (!email.trim()) return;
+    setSubmitted(true);
     try {
       const now = new Date();
       const humanTime = now.toLocaleString("en-US", { month: "long", day: "numeric", year: "numeric", hour: "numeric", minute: "2-digit", hour12: true });
@@ -17,7 +18,6 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ sheet: "Other Leads", timestamp: humanTime, event: "email_submit", app: appName, url, score, firstName: firstName.trim(), email: email.trim(), subscribe: "yes" }),
       });
-      setSubmitted(true);
     } catch { /* silent */ }
   };
 
@@ -57,7 +57,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
             </div>
           </>
         ) : (
-          <p style={{ fontSize: 13, color: "#4caf8a", fontWeight: 400, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>✓ You're in! Watch for Let's Make Some Noise.</p>
+          <p style={{ fontSize: 13, color: "#4caf8a", fontWeight: 400, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>✓ You're in! Check your inbox for a welcome letter from the team at Data on Tap.</p>
         )}
       </div>
     </div>
