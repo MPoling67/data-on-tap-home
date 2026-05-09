@@ -15,7 +15,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
       await fetch(LOGGER, {
         method: "POST", mode: "no-cors",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ timestamp: humanTime, event: "newsletter_footer_submit", app: appName, url, score, firstName: firstName.trim(), email: email.trim(), subscribe: "yes" }),
+        body: JSON.stringify({ sheet: "Other Leads", timestamp: humanTime, event: "newsletter_footer_submit", app: appName, url, score, firstName: firstName.trim(), email: email.trim(), subscribe: "yes" }),
       });
       setSubmitted(true);
     } catch { /* silent */ }
@@ -26,7 +26,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
       <div style={{ maxWidth: 860, margin: "0 auto" }}>
         <div style={{ marginBottom: "1.25rem" }}>
           <div style={{ fontSize: 10, fontWeight: 500, textTransform: "uppercase", letterSpacing: "0.14em", color: "#be3650", marginBottom: "0.5rem" }}>Subscribe Now</div>
-          <p style={{ fontSize: 14, fontWeight: 400, fontStyle: "italic", color: "#f0ede8", lineHeight: 1.5, margin: "0 0 0.35rem", fontFamily: "'Fraunces', Georgia, serif" }}>Turn what you know into what you're known for.</p>
+          <p style={{ fontSize: 14, fontWeight: 400, fontStyle: "italic", color: "#f0ede8", lineHeight: 1.5, margin: "0 0 0.35rem", fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Turn what you know into what you're known for.</p>
           <p style={{ fontSize: 14, fontWeight: 300, color: "#f0ede8", lineHeight: 1.6, margin: 0, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>Subscribe to get weekly ideas on how to use AI to organize, share, and monetize your expertise.</p>
         </div>
         {!submitted ? (
@@ -37,7 +37,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="First name"
-                style={{ flex: 1, background: "transparent", border: "none", padding: "6px 10px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
+                style={{ flex: 1, background: "transparent", border: "none", padding: "8px 16px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
               />
               <div style={{ width: 1, background: "rgba(255,255,255,0.15)", alignSelf: "stretch", margin: "4px 0" }} />
               <input
@@ -46,7 +46,7 @@ export default function SubscribeBar({ appName = "", url = "", score = "" }) {
                 onChange={(e) => setEmail(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSubmit()}
                 placeholder="your@email.com"
-                style={{ flex: 1, background: "transparent", border: "none", padding: "6px 10px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", outline: "none" }}
+                style={{ flex: 1, background: "transparent", border: "none", padding: "8px 16px", fontFamily: "'Plus Jakarta Sans',sans-serif", fontSize: 13, color: "#f0ede8", WebkitTextFillColor: "#f0ede8", WebkitBoxShadow: "0 0 0 1000px #111110 inset", outline: "none" }}
               />
               <button
                 onClick={handleSubmit}
