@@ -473,23 +473,23 @@ export default function App() {
             </div>
             <a
               className="featured-card dot-anim"
-              href="https://money.dataontap.dev/"
+              href="https://unfair.dataontap.dev/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 className="featured-thumb"
-                src="https://money.dataontap.dev/money-moves-social.png"
-                alt="Money Moves"
+                src="https://unfair.dataontap.dev/unfair-advantage-social.png"
+                alt="What's Your Unfair Advantage?"
               />
               <div className="featured-body">
-                <div className="featured-name">Money Moves</div>
+                <div className="featured-name">What's Your Unfair Advantage?</div>
                 <div className="featured-desc">
-                  Is your website leaving money on the table? Money Moves is a free 
-                  AI-generated website analysis that shows you exactly where you're 
-                  underselling what you do — and how to fix it.
+                  Celebrate what makes you uniquely you. Your Unfair Advantage is your competitive 
+                  edge. Enter your URL and click submit to get your AI-generated analysis that 
+                  celebrates what you do and reveals your biggest untapped opportunity.
                 </div>
-                <div className="featured-link">Get Your Money Moves →</div>
+                <div className="featured-link">Get Your Unfair Advantage →</div>
               </div>
             </a>
           </section>
