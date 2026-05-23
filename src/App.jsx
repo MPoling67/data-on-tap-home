@@ -5,14 +5,14 @@ import SubscribeBar from "./SubscribeBar";
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
   {
-    id: "money-moves",
-    name: "Money Moves",
-    desc: "Are you leaving money on the table? The Money Moves analysis provides a free, instant AI-generated website analysis that shows you exactly where you're underselling what you do — and how to fix it.",
+    id: "unfair-advantage",
+    name: "What's Your Unfair Advantage?",
+    desc: "Celebrate what makes you uniquely you. Your Unfair Advantage is your competitive edge. Enter your URL and click submit to get your AI-generated analysis that celebrates what you do and reveals your biggest untapped opportunity.",
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
-    url: "https://money.dataontap.dev/",
-    img: "https://money.dataontap.dev/money-moves-social.png",
+    url: "https://unfair.dataontap.dev/",
+    img: "https://unfair.dataontap.dev/unfair-advantage-social.png",
     date: "2026-04-19",
   },
   {
