@@ -5,14 +5,14 @@ import SubscribeBar from "./SubscribeBar";
 // ── TOOL DATA ─────────────────────────────────────────────────────────────────
 const TOOLS = [
   {
-    id: "unfair-advantage",
-    name: "What's Your Unfair Advantage?",
-    desc: "Celebrate what makes you uniquely you. Your Unfair Advantage is your competitive edge. Enter your URL and click submit to get your AI-generated analysis that celebrates what you do and reveals your biggest untapped opportunity.",
+    id: "you-are-awesome",
+    name: "You Are Awesome",
+    desc: "Celebrate what makes you uniquely you. Enter your URL and get an AI-generated scorecard that reveals what your website teaches AI — and your customers — about your expertise, plus your biggest untapped opportunity.",
     type: "bizintel",
     typeLabel: "Biz Intel",
     status: "live",
-    url: "https://unfair.dataontap.dev/",
-    img: "https://unfair.dataontap.dev/unfair-advantage-social.png",
+    url: "https://awesome.monicapoling.com/",
+    img: "https://awesome.monicapoling.com/you-are-awesome-monica-poling-social.png",
     date: "2026-04-19",
   },
   {
@@ -473,23 +473,23 @@ export default function App() {
             </div>
             <a
               className="featured-card dot-anim"
-              href="https://unfair.dataontap.dev/"
+              href="https://awesome.monicapoling.com/"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
                 className="featured-thumb"
-                src="https://unfair.dataontap.dev/unfair-advantage-social.png"
-                alt="What's Your Unfair Advantage?"
+                src="https://awesome.monicapoling.com/you-are-awesome-monica-poling-social.png"
+                alt="You Are Awesome"
               />
               <div className="featured-body">
-                <div className="featured-name">What's Your Unfair Advantage?</div>
+                <div className="featured-name">You Are Awesome</div>
                 <div className="featured-desc">
-                  Celebrate what makes you uniquely you. Your Unfair Advantage is your competitive 
-                  edge. Enter your URL and click submit to get your AI-generated analysis that 
-                  celebrates what you do and reveals your biggest untapped opportunity.
+                  Celebrate what makes you uniquely you. Enter your URL and get an AI-generated
+                  scorecard that reveals what your website teaches AI — and your customers — about
+                  your expertise, plus your biggest untapped opportunity.
                 </div>
-                <div className="featured-link">Get Your Unfair Advantage →</div>
+                <div className="featured-link">Get My AI Scorecard →</div>
               </div>
             </a>
           </section>
